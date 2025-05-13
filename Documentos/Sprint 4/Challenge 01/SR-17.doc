@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#SR-17] BUG-1 - [Usuário] Cadastro de usuário com provedor de email não permitido (gmail e hotmail)</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://luisms.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [SR-17]&nbsp;<a href="https://luisms.atlassian.net/browse/SR-17">BUG-1 - [Usuário] Cadastro de usuário com provedor de email não permitido (gmail e hotmail)</a>
+            <span class="subText">
+               Criado: 08/mai/25                   &nbsp;Atualizado(a): 09/mai/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Issues</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Projeto:</b></td>
+        <td width="80%"><a href="https://luisms.atlassian.net/secure/BrowseProject.jspa?id=10001">ServeRest API</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Componentes:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Versões afetadas:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Versões corrigidas:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Tipo:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Prioridade:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                Medium
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Relator:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="620ada1cef2bd5006ae88a72"
+                id="word_reporter_620ada1cef2bd5006ae88a72"
+                href="https://luisms.atlassian.net/secure/ViewProfile.jspa?accountId=620ada1cef2bd5006ae88a72">
+                    Luis Magris
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Responsável:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                    Não atribuído
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolução:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Não resolvido(s)
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votos:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Categorias:</b>
+        </td>
+        <td id="labels-10036-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            Nenhum
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Estimativa de trabalho restante:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Tempo gasto:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Estimativa original:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Anexos:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://luisms.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="Arquivo PNG">
+                    {26C8B1CD-D203-4707-ACEB-37F457A6FDB4}-20250508-233801.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Rank:</b></td>
+                <td id="customfield_10019-10036-value" class="value" bgcolor="#ffffff" width="80%">      0|i00033:
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10020-10036-value" class="value" bgcolor="#ffffff" width="80%">Sprint 1</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Descrição</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p><b>1- Descriçao detalhada</b></p>
+
+<p>Foi possível cadastrar um usuário com o dominio de email gmail e hotmail, o que contraria os critérios de aceitação.</p>
+
+<p><b>2- Passo a passo</b></p>
+
+<ol>
+	<li>Cadastrar usuário através de request POST na url: {{<a href="https://compassuol.serverest.dev/usuarios" class="external-link" rel="nofollow noreferrer">https://compassuol.serverest.dev/usuarios</a> }}e body:
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>{
+  "nome": "João",
+  "email": "nome@gmail.com",
+  "password": "teste",
+  "administrador": "true"
+}</pre>
+</div></div></li>
+</ol>
+
+
+<p><b>3- Resultado esperado</b></p>
+
+<p>O usuário não deveria ser cadastrado, pois utiliza domínio de email não permitido nos critérios de aceitação. Status Code: 400 Bad Request.</p>
+
+<p><b>4- Resultado Atual</b></p>
+
+<p>O usuário é cadastrado com sucesso. Status Code: 201 Created.</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-json">{
+    <span class="code-quote">"message"</span>: <span class="code-quote">"Cadastro realizado com sucesso"</span>,
+    <span class="code-quote">"_id"</span>: <span class="code-quote">"saeyzdSw5KmNQEMl"</span>
+}</pre>
+</div></div>
+
+<p><b>5 - Gravidade</b></p>
+
+<p>Alta, pois contraria regra de negócio estabelecida.</p>
+
+<p><b>6 - Prioridade</b></p>
+
+<p>Média, não afeta diretamento o objeto do negócio.</p>
+
+<p><b>7 - Ambiente onde ocorre</b></p>
+
+<p>API Serverest</p>
+
+<p>POST/usuarios</p>
+
+<p><b>8 - Responsável</b></p>
+
+<p>A ser definido pela equipe de desenvolvimento</p>
+
+<p><b>9 - Anexos</b></p>
+
+<p>!</p>
+{26C8B1CD-D203-4707-ACEB-37F457A6FDB4}-20250508-233801.png|width=1415,height=825,alt="{26C8B1CD-D203-4707-ACEB-37F457A6FDB4}
+<p>-20250508-233801.png"!</p>
+
+
+
+<p><b>10 - Relação com outros defeitos ou requisitos</b></p>
+
+<p>Não foram identificadas relações com outros defeitos ou requisitos.</p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+Gerado em Mon May 12 17:44:19 UTC 2025 por Luis Magris usando JIRA 1001.0.0-SNAPSHOT#100283-rev:ae90960f6ce4b93d8be8d846e57df479663fa457.
+
+</body>
+</html>

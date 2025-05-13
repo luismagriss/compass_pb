@@ -1,0 +1,973 @@
+Message-ID: <222665515.43.1747080911836@6bd51936b22b>
+Subject: Exported From Confluence
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_42_114206190.1747080911835"
+
+------=_Part_42_114206190.1747080911835
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/exported.html
+
+<html xmlns:o=3D'urn:schemas-microsoft-com:office:office'
+      xmlns:w=3D'urn:schemas-microsoft-com:office:word'
+      xmlns:v=3D'urn:schemas-microsoft-com:vml'
+      xmlns=3D'urn:w3-org-ns:HTML'>
+<head>
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8=
+">
+    <title>Plano de testes - ServeRest API</title>
+    <!--[if gte mso 9]>
+    <xml>
+        <o:OfficeDocumentSettings>
+            <o:TargetScreenSize>1024x640</o:TargetScreenSize>
+            <o:PixelsPerInch>72</o:PixelsPerInch>
+            <o:AllowPNG/>
+        </o:OfficeDocumentSettings>
+        <w:WordDocument>
+            <w:View>Print</w:View>
+            <w:Zoom>90</w:Zoom>
+            <w:DoNotOptimizeForBrowser/>
+        </w:WordDocument>
+    </xml>
+    <![endif]-->
+    <style>
+                <!--
+        @page Section1 {
+            size: 8.5in 11.0in;
+            margin: 1.0in;
+            mso-header-margin: .5in;
+            mso-footer-margin: .5in;
+            mso-paper-source: 0;
+        }
+
+        table {
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+
+        table td, table th {
+            border: solid 1px;
+            padding: 5px;
+        }
+
+        td {
+            page-break-inside: avoid;
+        }
+
+        tr {
+            page-break-after: avoid;
+        }
+
+        div.Section1 {
+            page: Section1;
+        }
+
+        /* Confluence print stylesheet. Common to all themes for print medi=
+a */
+/* Full of !important until we improve batching for print CSS */
+
+@media print {
+    #main {
+        padding-bottom: 1em !important; /* The default padding of 6em is to=
+o much for printouts */
+    }
+
+    body {
+        font: var(--ds-font-body-small, Arial, Helvetica, FreeSans, sans-se=
+rif);
+    }
+
+    body, #full-height-container, #main, #page, #content, .has-personal-sid=
+ebar #content {
+        background: var(--ds-surface, #fff) !important;
+        color: var(--ds-text, #000) !important;
+        border: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: block !important;
+    }
+
+    a, a:link, a:visited, a:focus, a:hover, a:active {
+        color: var(--ds-text, #000);
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+        page-break-after: avoid;
+    }
+
+    pre {
+        font: var(--ds-font-code, Monaco, "Courier New", monospace);
+    }
+
+    #header,
+    .aui-header-inner,
+    #navigation,
+    #sidebar,
+    .sidebar,
+    #personal-info-sidebar,
+    .ia-fixed-sidebar,
+    .page-actions,
+    .navmenu,
+    .ajs-menu-bar,
+    .noprint,
+    .inline-control-link,
+    .inline-control-link a,
+    a.show-labels-editor,
+    .global-comment-actions,
+    .comment-actions,
+    .quick-comment-container,
+    #addcomment {
+        display: none !important;
+    }
+
+    /* CONF-28544 cannot print multiple pages in IE */
+    #splitter-content {
+        position: relative !important;
+    }
+
+    .comment .date::before {
+        content: none !important; /* remove middot for print view */
+    }
+
+    h1.pagetitle img {
+        height: auto;
+        width: auto;
+    }
+
+    .print-only {
+        display: block;
+    }
+
+    #footer {
+        position: relative !important; /* CONF-17506 Place the footer at en=
+d of the content */
+        margin: 0;
+        padding: 0;
+        background: none;
+        clear: both;
+    }
+
+    #poweredby {
+        border-top: none;
+        background: none;
+    }
+
+    #poweredby li.print-only {
+        display: list-item;
+        font-style: italic;
+    }
+
+    #poweredby li.noprint {
+        display: none;
+    }
+
+    /* no width controls in print */
+    .wiki-content .table-wrap,
+    .wiki-content p,
+    .panel .codeContent,
+    .panel .codeContent pre,
+    .image-wrap {
+        overflow: visible !important;
+    }
+
+    /* TODO - should this work? */
+    #children-section,
+    #comments-section .comment,
+    #comments-section .comment .comment-body,
+    #comments-section .comment .comment-content,
+    #comments-section .comment p {
+        page-break-inside: avoid;
+    }
+
+    #page-children a {
+        text-decoration: none;
+    }
+
+    /**
+     hide twixies
+
+     the specificity here is a hack because print styles
+     are getting loaded before the base styles. */
+    #comments-section.pageSection .section-header,
+    #comments-section.pageSection .section-title,
+    #children-section.pageSection .section-header,
+    #children-section.pageSection .section-title,
+    .children-show-hide {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .children-show-hide.icon {
+        display: none;
+    }
+
+    /* personal sidebar */
+    .has-personal-sidebar #content {
+        margin-right: 0px;
+    }
+
+    .has-personal-sidebar #content .pageSection {
+        margin-right: 0px;
+    }
+
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+-->
+    </style>
+</head>
+<body>
+    <h1>Plano de testes - ServeRest API</h1>
+    <div class=3D"Section1">
+        <h2 id=3D"Planodetestes-ServeRestAPI-1.Identifica=C3=A7=C3=A3odoPla=
+nodeTestes">1. <strong>Identifica=C3=A7=C3=A3o do Plano de Testes</strong><=
+/h2>
+<ul>
+<li>
+<p>Nome do projeto: ServeRest</p></li>
+<li>
+<p>Respons=C3=A1vel: <a class=3D"confluence-userlink user-mention current-u=
+ser-mention" data-account-id=3D"620ada1cef2bd5006ae88a72" href=3D"https://l=
+uisms.atlassian.net/wiki/people/620ada1cef2bd5006ae88a72?ref=3Dconfluence" =
+target=3D"_blank" data-linked-resource-id=3D"131073" data-linked-resource-v=
+ersion=3D"1" data-linked-resource-type=3D"userinfo" data-base-url=3D"https:=
+//luisms.atlassian.net/wiki">Luis Magris</a></p></li>
+<li>
+<p>Data de cria=C3=A7=C3=A3o: <time datetime=3D"2025-05-05" class=3D"date-p=
+ast">5 de mai. de 2025</time></p></li>
+</ul>
+<h2 id=3D"Planodetestes-ServeRestAPI-2.ObjetivodoPlano">2. <strong>Objetivo=
+ do Plano</strong></h2>
+<p>Descrever a abordagem e o escopo dos testes a serem realizados na API Se=
+rveRest para garantir sua qualidade funcional e n=C3=A3o funcional.</p>
+<h2 id=3D"Planodetestes-ServeRestAPI-3.EscopodosTestes">3. <strong>Escopo d=
+os Testes</strong></h2>
+<h4 id=3D"Planodetestes-ServeRestAPI-=E2=9C=94=EF=B8=8FInclu=C3=ADdo:">=E2=
+=9C=94=EF=B8=8F Inclu=C3=ADdo:</h4>
+<ul>
+<li>
+<p>Funcionalidades do cliente (cadastro, login, produtos, lista de compras)=
+</p></li>
+<li>
+<p>Funcionalidades do administrador (listar usu=C3=A1rios, produtos)</p></l=
+i>
+<li>
+<p>Fluxo</p></li>
+<li>
+<p>Dashboard/Admin</p></li>
+<li>
+<p>Requisitos N=C3=A3o Funcionais:</p>
+<ul>
+<li>
+<p>Usabilidade</p></li>
+<li>
+<p>Responsividade</p></li>
+<li>
+<p>Desempenho</p></li>
+</ul></li>
+</ul>
+<p>=E2=9D=8C Exclu=C3=ADdo:</p>
+<ul>
+<li>
+<p>Funcionalidades: Carrinho de compras, Relat=C3=B3rios</p></li>
+</ul>
+<h2 id=3D"Planodetestes-ServeRestAPI-4.FuncionalidadesaSeremTestadas">4. <s=
+trong>Funcionalidades a Serem Testadas</strong></h2>
+<ul>
+<li>
+<p>Cadastro e login de usu=C3=A1rios</p></li>
+<li>
+<p>Cadastro, busca, gerenciamento e filtro de produtos</p></li>
+<li>
+<p>Painel do administrador</p></li>
+<li>
+<p>Lista de compras</p></li>
+</ul>
+<h2 id=3D"Planodetestes-ServeRestAPI-5.TiposdeTestesPlanejados">5. <strong>=
+Tipos de Testes Planejados</strong></h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"b0=
+d43a7c-8b9a-4c0b-b2a0-f4f8dd30f73e" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>Tipo de Teste</p></th>
+<th class=3D"confluenceTh">
+<p>Objetivo</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Testes Funcionais</p></td>
+<td class=3D"confluenceTd">
+<p>Validar se os requisitos est=C3=A3o implementados corretamente</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Testes de Interface</p></td>
+<td class=3D"confluenceTd">
+<p>Avaliar responsividade, layout e acessibilidade</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Testes de Usabilidade</p></td>
+<td class=3D"confluenceTd">
+<p>Avaliar a experi=C3=AAncia do usu=C3=A1rio</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p><strong>Testes Explorat=C3=B3rios</strong></p></td>
+<td class=3D"confluenceTd">
+<p>Investigar o sistema sem scripts pr=C3=A9-definidos, baseado em experi=
+=C3=AAncia e intui=C3=A7=C3=A3o do QA</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id=3D"Planodetestes-ServeRestAPI-6.TestesExplorat=C3=B3rios"><strong>6.=
+ Testes Explorat=C3=B3rios</strong></h2>
+<h3 id=3D"Planodetestes-ServeRestAPI-6.1.Objetivo:">6.1. Objetivo:</h3>
+<p>Realizar testes sem roteiro pr=C3=A9-definido, baseando-se em heur=C3=AD=
+sticas e intui=C3=A7=C3=A3o profissional para descobrir comportamentos ines=
+perados, problemas de usabilidade e falhas que n=C3=A3o s=C3=A3o facilmente=
+ capturadas em testes automatizados ou roteirizados.</p>
+<h3 id=3D"Planodetestes-ServeRestAPI-6.2.Heur=C3=ADsticas:">6.2. Heur=C3=AD=
+sticas:</h3>
+<p>Os testes explorat=C3=B3rios ser=C3=A3o conduzidos pelos testadores, com=
+ foco em =C3=A1reas cr=C3=ADticas da aplica=C3=A7=C3=A3o. Para guiar esses =
+testes e garantir uma abordagem sistem=C3=A1tica, ser=C3=A3o aplicadas as s=
+eguintes <strong>heur=C3=ADsticas</strong>:</p>
+<ol start=3D"1">
+<li>
+<p><strong>ALTERFACE</strong></p>
+<ul>
+<li>
+<p><strong>Justificativa:</strong> Permite explorar o sistema a partir de d=
+iferentes perspectivas de uso e cen=C3=A1rios reais, cobrindo varia=C3=A7=
+=C3=B5es de contexto, dados e comportamento. Ideal para validar o comportam=
+ento da aplica=C3=A7=C3=A3o em situa=C3=A7=C3=B5es inesperadas ou limites.<=
+/p></li>
+</ul></li>
+<li>
+<p><strong>CRUD</strong></p>
+<ul>
+<li>
+<p><strong>Justificativa:</strong> Fundamental para testar as opera=C3=A7=
+=C3=B5es b=C3=A1sicas de qualquer sistema com persist=C3=AAncia de dados, g=
+arantindo que cada opera=C3=A7=C3=A3o funcione de forma isolada e combinada=
+. Essencial para formul=C3=A1rios, perfis de usu=C3=A1rio, produtos e geren=
+ciamento de pedidos.</p></li>
+</ul></li>
+<li>
+<p><strong>CHIQUE</strong></p>
+<ul>
+<li>
+<p><strong>Justificativa:</strong> Excelente para organizar rapidamente ide=
+ias de teste com base em diversidade de entradas, varia=C3=A7=C3=B5es de es=
+tados e dados. Ajuda a explorar entradas malformadas e cen=C3=A1rios de uso=
+ incomum.</p></li>
+</ul></li>
+<li>
+<p><strong>GOLDILOCKS</strong></p>
+<ul>
+<li>
+<p><strong>Justificativa:</strong> Ideal para testes de <strong>valida=C3=
+=A7=C3=A3o de limites</strong>, como campos de texto, quantidade de produto=
+s no carrinho, entre outros. Ajuda a revelar falhas de valida=C3=A7=C3=A3o =
+e mensagens de erro confusas ou ausentes.</p></li>
+</ul></li>
+</ol>
+<h3 id=3D"Planodetestes-ServeRestAPI-6.3T=C3=A9cnicasdeTesteComplementares:=
+">6.3 T=C3=A9cnicas de Teste Complementares:</h3>
+<ol start=3D"1">
+<li>
+<p><strong>CEN=C3=81RIOS</strong></p>
+<ul>
+<li>
+<p>Permite simular situa=C3=A7=C3=B5es reais de uso com in=C3=ADcio, meio e=
+ fim, facilitando a valida=C3=A7=C3=A3o do sistema em contextos completos (=
+ex: "comprar um produto com frete gr=C3=A1tis e cupom de desconto"). Essenc=
+ial para validar fluxos de neg=C3=B3cio.</p></li>
+</ul></li>
+<li>
+<p><strong>FEEDBACK </strong></p>
+<ul>
+<li>
+<p>Usada para colher a vis=C3=A3o dos usu=C3=A1rios reais ou do pr=C3=B3pri=
+o time sobre o comportamento do sistema. Essencial para identificar problem=
+as subjetivos, como usabilidade, clareza de mensagens e expectativas n=C3=
+=A3o atendidas.</p></li>
+</ul></li>
+<li>
+<p><strong>CLASSE DE EQUIVAL=C3=8ANCIA</strong></p>
+<ul>
+<li>
+<p>Reduz a quantidade de testes cobrindo grupos de valores com mesmo compor=
+tamento esperado. Otimiza o esfor=C3=A7o e garante boa cobertura funcional.=
+</p></li>
+</ul></li>
+<li>
+<p><strong>VALOR LIMITE (Boundary Value Analysis)</strong></p>
+<ul>
+<li>
+<p>Foca em testar extremos de entrada, onde falhas ocorrem com mais frequ=
+=C3=AAncia (ex: valores m=C3=ADnimos e m=C3=A1ximos aceitos por um campo). =
+Essencial para valida=C3=A7=C3=A3o de regras de neg=C3=B3cio e inputs cr=C3=
+=ADticos.</p></li>
+</ul></li>
+<li>
+<p><strong>TRANSI=C3=87=C3=83O DE ESTADOS</strong></p>
+<ul>
+<li>
+<p>Ideal para testar sistemas com m=C3=BAltiplos estados e eventos. Ajuda a=
+ validar regras de transi=C3=A7=C3=A3o e eventos inv=C3=A1lidos.</p></li>
+</ul></li>
+<li>
+<p><strong>TABELAS DE DECIS=C3=83O</strong></p>
+<ul>
+<li>
+<p>Organiza regras de neg=C3=B3cio complexas com m=C3=BAltiplas combina=C3=
+=A7=C3=B5es de condi=C3=A7=C3=B5es e a=C3=A7=C3=B5es (ex: diferentes pol=C3=
+=ADticas de frete conforme regi=C3=A3o, peso e valor da compra). Garante co=
+bertura sistem=C3=A1tica de l=C3=B3gicas combinat=C3=B3rias.</p></li>
+</ul></li>
+</ol>
+<ol start=3D"7">
+<li>
+<p><strong>ARRAY ORTOGONAL (Testes Combinat=C3=B3rios)</strong></p>
+<ul>
+<li>
+<p>Permite testar v=C3=A1rias combina=C3=A7=C3=B5es de fatores com um n=C3=
+=BAmero m=C3=ADnimo de casos, garantindo representatividade estat=C3=ADstic=
+a.</p></li>
+<li>
+<p>=C3=9Atil em sistemas com m=C3=BAltiplas configura=C3=A7=C3=B5es poss=C3=
+=ADveis (ex: navegador, idioma, dispositivo).</p></li>
+</ul></li>
+<li>
+<p><strong>PERSONAS</strong></p>
+<ul>
+<li>
+<p>Ajuda a simular diferentes perfis de usu=C3=A1rios, com objetivos e nece=
+ssidades distintas (ex: cliente novo vs. cliente premium).</p></li>
+<li>
+<p>Garante que o sistema funcione bem para todos os p=C3=BAblicos-alvo.</p>=
+</li>
+</ul></li>
+<li>
+<p><strong>SOAP OPERA </strong></p>
+<ul>
+<li>
+<p>T=C3=A9cnica l=C3=BAdica para criar hist=C3=B3rias ricas e dram=C3=A1tic=
+as com uso extremo ou exagerado da aplica=C3=A7=C3=A3o.</p></li>
+<li>
+<p>Revela falhas inesperadas, integra diversas t=C3=A9cnicas e estimula cri=
+atividade na descoberta de bugs.</p></li>
+</ul></li>
+<li>
+<p><strong>TOURS (Tours Explorat=C3=B3rios) </strong></p>
+<ul>
+<li>
+<p>Explora=C3=A7=C3=A3o do sistema com foco espec=C3=ADfico, =C3=BAtil para=
+ encontrar inconsist=C3=AAncias ou lacunas em =C3=A1reas pouco testadas.</p=
+></li>
+<li>
+<p>R=C3=A1pido e direcionado.</p></li>
+</ul></li>
+</ol>
+<h3 id=3D"Planodetestes-ServeRestAPI-=F0=9F=93=9D6.4.RegistroeResultados:">=
+=F0=9F=93=9D 6.4. Registro e Resultados:</h3>
+<ul>
+<li>
+<p>Cada sess=C3=A3o ser=C3=A1 documentada com:</p>
+<ul>
+<li>
+<p><em>Charter (miss=C3=A3o)</em></p></li>
+<li>
+<p><em>Observa=C3=A7=C3=B5es e descobertas</em></p></li>
+<li>
+<p><em>Defeitos encontrados (com severidade e prioridade)</em></p></li>
+<li>
+<p><em>Sugest=C3=B5es de melhorias</em></p></li>
+</ul></li>
+<li>
+<p>O documento dever=C3=A1 seguir o template:</p></li>
+</ul>
+<hr>
+<h2 id=3D"Planodetestes-ServeRestAPI-TESTEEXPLORAT=C3=93RIO-#ID">TESTE EXPL=
+ORAT=C3=93RIO - # <strong>ID</strong></h2>
+<ul>
+<li>
+<p><strong>Tester:</strong></p></li>
+<li>
+<p><strong>Data:</strong></p></li>
+<li>
+<p><strong>Dura=C3=A7=C3=A3o:</strong> (ex: 60 minutos)</p></li>
+<li>
+<p><strong>Heur=C3=ADstica Aplicada:</strong></p></li>
+</ul>
+<ul class=3D"inline-task-list" data-inline-tasks-content-id=3D"327681">
+<li data-inline-task-id=3D"71"><span class=3D"placeholder-inline-tasks">ALT=
+ERFACE</span></li>
+<li data-inline-task-id=3D"72"><span class=3D"placeholder-inline-tasks">CRU=
+D</span></li>
+<li data-inline-task-id=3D"73"><span class=3D"placeholder-inline-tasks">CHI=
+QUE</span></li>
+<li data-inline-task-id=3D"74"><span class=3D"placeholder-inline-tasks">GOL=
+DILOCKS</span></li>
+</ul>
+<ul>
+<li>
+<p><strong>Estrat=C3=A9gias/T=C3=A9cnicas:</strong></p></li>
+</ul>
+<ul class=3D"inline-task-list" data-inline-tasks-content-id=3D"327681">
+<li data-inline-task-id=3D"75"><span class=3D"placeholder-inline-tasks">Cen=
+=C3=A1rios</span></li>
+<li data-inline-task-id=3D"76"><span class=3D"placeholder-inline-tasks">Fee=
+dback</span></li>
+<li data-inline-task-id=3D"77"><span class=3D"placeholder-inline-tasks">Cla=
+sse de Equival=C3=AAncia</span></li>
+<li data-inline-task-id=3D"78"><span class=3D"placeholder-inline-tasks">Val=
+or limite</span></li>
+<li data-inline-task-id=3D"79"><span class=3D"placeholder-inline-tasks">Tra=
+nsi=C3=A7=C3=A3o de Estados</span></li>
+<li data-inline-task-id=3D"80"><span class=3D"placeholder-inline-tasks">Tab=
+elas de decis=C3=A3o</span></li>
+<li data-inline-task-id=3D"81"><span class=3D"placeholder-inline-tasks">Arr=
+ay Ortogonal</span></li>
+<li data-inline-task-id=3D"82"><span class=3D"placeholder-inline-tasks">Per=
+sonas</span></li>
+<li data-inline-task-id=3D"83"><span class=3D"placeholder-inline-tasks">SOA=
+P Opera</span></li>
+<li data-inline-task-id=3D"84"><span class=3D"placeholder-inline-tasks">Tou=
+rs</span></li>
+</ul>
+<ul>
+<li>
+<p><strong>Ambiente:</strong> (Homologa=C3=A7=C3=A3o / Produ=C3=A7=C3=A3o /=
+ Local)</p></li>
+</ul>
+<hr>
+<h3 id=3D"Planodetestes-ServeRestAPI-=F0=9F=8E=AFCharter(Miss=C3=A3odaSess=
+=C3=A3o)">=F0=9F=8E=AF <strong>Charter (Miss=C3=A3o da Sess=C3=A3o)</strong=
+></h3>
+<p><em>Exemplo: "Explorar o fluxo de checkout utilizando diferentes formas =
+de pagamento, simulando falhas de conex=C3=A3o e cancelamentos parciais."</=
+em></p>
+<hr>
+<h3 id=3D"Planodetestes-ServeRestAPI-=F0=9F=9B=A0=EF=B8=8F=C3=81reasFuncion=
+aisFocadas">=F0=9F=9B=A0=EF=B8=8F <strong>=C3=81reas Funcionais Focadas</st=
+rong></h3>
+<ul>
+<li>
+<p></p></li>
+<li>
+<p>Outros: ___________</p></li>
+</ul>
+<hr>
+<h3 id=3D"Planodetestes-ServeRestAPI-=E2=9C=8F=EF=B8=8FNotasdaSess=C3=A3o">=
+=E2=9C=8F=EF=B8=8F <strong>Notas da Sess=C3=A3o</strong></h3>
+<p>(Anota=C3=A7=C3=B5es em tempo real durante o teste. O que foi tentado? O=
+ que chamou aten=C3=A7=C3=A3o?)</p>
+<hr>
+<h3 id=3D"Planodetestes-ServeRestAPI-=F0=9F=90=9EBugsEncontrados">=F0=9F=90=
+=9E <strong>Bugs Encontrados</strong></h3>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"6e=
+3acbe2-4b1f-4eef-ac4b-dc0d98c2c657" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p>ID / Link</p></th>
+<th class=3D"confluenceTh">
+<p>Descri=C3=A7=C3=A3o do Problema</p></th>
+<th class=3D"confluenceTh">
+<p>Severidade</p></th>
+<th class=3D"confluenceTh">
+<p>Reproduz=C3=ADvel?</p></th>
+<th class=3D"confluenceTh">
+<p>Observa=C3=A7=C3=B5es</p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>BUG-XXX</p></td>
+<td class=3D"confluenceTd">
+<p>[Breve descri=C3=A7=C3=A3o]</p></td>
+<td class=3D"confluenceTd">
+<p>Alta</p></td>
+<td class=3D"confluenceTd">
+<p>Sim/N=C3=A3o</p></td>
+<td class=3D"confluenceTd">
+<p>[Obs]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id=3D"Planodetestes-ServeRestAPI-=F0=9F=92=A1MelhoriasSugeridas">=F0=9F=
+=92=A1 <strong>Melhorias Sugeridas</strong></h3>
+<ul>
+<li>
+<p>[Melhoria 1]</p></li>
+<li>
+<p>[Melhoria 2]</p></li>
+<li>
+<p>[Melhoria 3]</p></li>
+</ul>
+<hr>
+<h3 id=3D"Planodetestes-ServeRestAPI-=E2=9C=85ResultadoseConclus=C3=A3o">=
+=E2=9C=85 <strong>Resultados e Conclus=C3=A3o</strong></h3>
+<ul>
+<li>
+<p>Total de bugs encontrados: ___</p></li>
+<li>
+<p>Itens de usabilidade observados: ___</p></li>
+<li>
+<p>Charter conclu=C3=ADdo? ( ) Sim ( ) Parcial ( ) N=C3=A3o</p></li>
+<li>
+<p>Recomenda=C3=A7=C3=A3o: ( ) Pronto ( ) Necessita ajustes ( ) Retestar ap=
+=C3=B3s corre=C3=A7=C3=B5es</p></li>
+</ul>
+<hr>
+<h2 id=3D"Planodetestes-ServeRestAPI-7.Crit=C3=A9riosdeSa=C3=ADda">7. <stro=
+ng>Crit=C3=A9rios de Sa=C3=ADda</strong></h2>
+<ul>
+<li>
+<p>Planilha de teste preenchida</p></li>
+<li>
+<p>Registro de todos os defeitos encontrados</p></li>
+</ul>
+<h2 id=3D"Planodetestes-ServeRestAPI-8.AmbientedeTestes">8. <strong>Ambient=
+e de Testes</strong></h2>
+<ul>
+<li>
+<p>Navegadores: Chrome, Firefox</p></li>
+<li>
+<p>Dispositivos: Aplica=C3=A7=C3=A3o Web</p></li>
+<li>
+<p>Base de dados: com dados fict=C3=ADcios realistas</p></li>
+</ul>
+<h2 id=3D"Planodetestes-ServeRestAPI-9.CronogramadeTestes">9. <strong>Crono=
+grama de Testes</strong></h2>
+<div class=3D"table-wrap">
+<table data-table-width=3D"760" data-layout=3D"default" data-local-id=3D"28=
+40c8f3-2fb1-4e08-8e2f-5b31fa346c2c" class=3D"confluenceTable">
+<tbody>
+<tr>
+<th class=3D"confluenceTh">
+<p><strong>Atividade</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>In=C3=ADcio</strong></p></th>
+<th class=3D"confluenceTh">
+<p><strong>Fim</strong></p></th>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Planejamento</p></td>
+<td class=3D"confluenceTd">
+<p>22/04/2025</p></td>
+<td class=3D"confluenceTd">
+<p>22/04/2025</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Testes Explorat=C3=B3rios</p></td>
+<td class=3D"confluenceTd">
+<p>23/04/2025</p></td>
+<td class=3D"confluenceTd">
+<p>24/04/2025</p></td>
+</tr>
+<tr>
+<td class=3D"confluenceTd">
+<p>Entrega Final</p></td>
+<td class=3D"confluenceTd">
+<p>25/04/2025</p></td>
+<td class=3D"confluenceTd">
+<p></p></td>
+</tr>
+</tbody>
+</table>
+</div><span class=3D"confluence-embedded-file-wrapper image-center-wrapper =
+confluence-embedded-manual-size"><img class=3D"confluence-embedded-image im=
+age-center" alt=3D"ServeRest API.jpg" width=3D"468" loading=3D"lazy" src=3D=
+"b1b4fdde7e468d1db0b07ebab0e1ee49202f4d9f4967bdb2a04330e1d7f335be" data-ima=
+ge-src=3D"https://luisms.atlassian.net/wiki/download/attachments/327681/Ser=
+veRest%20API.jpg?version=3D1&amp;modificationDate=3D1746485907095&amp;cache=
+Version=3D1&amp;api=3Dv2" data-height=3D"974" data-width=3D"1716" data-unre=
+solved-comment-count=3D"0" data-linked-resource-id=3D"786434" data-linked-r=
+esource-version=3D"1" data-linked-resource-type=3D"attachment" data-linked-=
+resource-default-alias=3D"ServeRest API.jpg" data-base-url=3D"https://luism=
+s.atlassian.net/wiki" data-linked-resource-content-type=3D"image/jpeg" data=
+-linked-resource-container-id=3D"327681" data-linked-resource-container-ver=
+sion=3D"2" data-media-id=3D"6825edb9-048f-407f-98ac-ed3ec944d177" data-medi=
+a-type=3D"file" height=3D"265"></span>
+<p></p>
+    </div>
+</body>
+</html>
+------=_Part_42_114206190.1747080911835
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/b1b4fdde7e468d1db0b07ebab0e1ee49202f4d9f4967bdb2a04330e1d7f335be
+
+/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYn
+KSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo
+KCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAD6AbgDASIAAhEBAxEB/8QAHAABAAIDAQEB
+AAAAAAAAAAAAAAMEAgUGAQcI/8QARRAAAQMCBQIDBQQFCwQCAwAAAQACAwQRBQYSITFBURMiYRQy
+cYGRFVKhsQcWI8HwJDM0NUJTYnKCstEXkuHxQ6Jzg5P/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAgED
+BAX/xAAtEQEAAgEBBQcEAwEBAAAAAAAAAQIRAxITITFRFCJBYaGx8AQyUpFxgfFCwf/aAAwDAQAC
+EQMRAD8A/NaIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAi90nsfoml33T
+9EHiIQRyCEQERZwxumlbGwXcUOTBFuajLWJ08JlqKWWKIcvfG4AfOygGDVZe1oYS51iAGu3uLjp1
+CnahG8r1a1FsvsepuQW7g2tpdz24UjsAr2ziF0LxMTbQWOv9LJtQbyvVqUWxGEVJ4F+mzXf8J9kV
+N7W34913/CbUG8r1a5FsThNSBe23fSf+Fr3AtcWnkGxWxMTybFotyeIiLVCIiAiIgIiICIiAiIgI
+iICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIpI2Cxe+4YNtuSewQYsjc++kXtyegUsMb
+PGjDpWHzDYAnqo5JC+w2DRw0cBYAkEEbEboPpOXMIpMTirXVtfHReG0NgdI4BrpDc2dfoGgnb0W6
+kyVRQ0PtU+ZqBkbyGxHT7xuARbVva+9thY2LgvlP2nVffb/2hPtOp+83/sCDZYzGx0TRJIGWfYO0
+l1/omXcPwmqnmbiWJGCJrQWvbA5x1FwFrfAk/Jaepq5qgASuBA3AAsoQSOCR8FMxM+KbVmeUutxf
+B8EpaDxKTEPaKgtH7NoadBvuCRyB3HNuFpnVD6aCiipJXPjc1znhoLRIdRG467ADdawvcRYucR8V
+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
+QEREBERB/9k=
+------=_Part_42_114206190.1747080911835--

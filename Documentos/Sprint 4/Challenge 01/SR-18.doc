@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[#SR-18] BUG-2 - [Usuários] Cadastro com senha inferior a 5 caracteres</title>
+    <meta http-equiv="Content-Type" Content="application/vnd.ms-word; charset=UTF-8">
+        <style type="text/css">
+
+.tableBorder, .grid
+{
+    background-color: #fff;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableBorder td, .grid td
+{
+    vertical-align: top;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+.noPadding
+{
+    padding: 0 !important;
+}
+
+h3 .subText
+{
+    font-size: 60%;
+    font-weight: normal;
+}
+
+.tabLabel
+{
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom:none;
+    padding: 2px;
+    display: inline;
+}
+
+td.blank
+{
+    padding: 0;
+    margin: 0;
+}
+
+.blank td
+{
+    border: none;
+}
+
+#descriptionArea
+{
+    margin: 0;
+    padding: 2px;
+    border: 1px solid #ccc;
+}
+
+hr
+{
+    border-top:1px solid #aaa;
+}
+
+hr.fullcontent
+{
+  height: 15px;
+  padding: 10px 0;
+  background: #fff url('https://luisms.atlassian.net/images/icons/hr.gif') no-repeat scroll center;
+}
+
+</style>
+
+</head>
+<body>
+
+<table class="tableBorder" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" width="100%" colspan="2" valign="top">
+                            <h3 class="formtitle">
+                        [SR-18]&nbsp;<a href="https://luisms.atlassian.net/browse/SR-18">BUG-2 - [Usuários] Cadastro com senha inferior a 5 caracteres</a>
+            <span class="subText">
+               Criado: 08/mai/25                   &nbsp;Atualizado(a): 09/mai/25
+
+                                            </span>
+            </h3>
+        </td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Status:</b></td>
+        <td width="80%">Issues</td>
+    </tr>
+    <tr>
+        <td width="20%"><b>Projeto:</b></td>
+        <td width="80%"><a href="https://luisms.atlassian.net/secure/BrowseProject.jspa?id=10001">ServeRest API</a></td>
+    </tr>
+
+        <tr>
+            <td><b>Componentes:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Versões afetadas:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+
+        <tr>
+            <td><b>Versões corrigidas:</b></td>
+            <td>
+                            Nenhum
+                </td>
+    </tr>
+    
+    
+    </table>
+
+<br />
+<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td bgcolor="#f0f0f0" valign="top" width="20%">
+            <b>Tipo:</b>
+        </td>
+        <td bgcolor="#ffffff" valign="top"  width="30%" >
+            Bug
+        </td>
+
+                    <td bgcolor="#f0f0f0">
+                <b>Prioridade:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap>
+                High
+            </td>
+            </tr>
+    <tr>
+                        <td bgcolor="#f0f0f0" valign="top" width="20%">
+                <b>Relator:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top"  width="30%" >
+                                        
+                
+        
+            <a class="user-hover" rel="620ada1cef2bd5006ae88a72"
+                id="word_reporter_620ada1cef2bd5006ae88a72"
+                href="https://luisms.atlassian.net/secure/ViewProfile.jspa?accountId=620ada1cef2bd5006ae88a72">
+                    Luis Magris
+                </a>
+
+                            </td>
+        
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Responsável:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" nowrap  width="30%" >
+                                    Não atribuído
+                            </td>
+            </tr>
+    	<tr>
+		<td bgcolor="#f0f0f0" width="20%">
+			<b>Resolução:</b>
+		</td>
+		<td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+            				Não resolvido(s)
+                    </td>
+                    <td bgcolor="#f0f0f0" width="20%">
+                <b>Votos:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top" width="30%" nowrap>
+                0
+            </td>
+        
+    </tr>
+    
+        <tr>
+        <td bgcolor="#f0f0f0" width="20%">
+            <b>Categorias:</b>
+        </td>
+        <td id="labels-10038-value" class="value" bgcolor="#ffffff" valign="top" colspan="3" nowrap>
+                            Nenhum
+                    </td>
+    </tr>
+    
+    	<tr>
+        		<td bgcolor="#f0f0f0" width="20%"><b>Estimativa de trabalho restante:</b></td>
+        <td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+    </tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Tempo gasto:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+	</tr>
+    <tr>
+                <td bgcolor="#f0f0f0" width="20%"><b>Estimativa original:</b></td>
+		<td bgcolor="#ffffff" valign="top" nowrap width="80%" colspan="3">
+                            Desconhecido
+            		</td>
+    </tr>
+    
+    </table>
+
+
+
+    <br />
+
+    	<table class="grid" cellpadding="0" cellspacing="0" border="0" width="100%">
+            
+
+                <tr>
+            <td bgcolor="#f0f0f0" width=20% valign=top>
+                <b>Anexos:</b>
+            </td>
+            <td bgcolor="#ffffff" valign="top">
+                                    <img src="https://luisms.atlassian.net/images/icons/attach/image.gif" height="16" width="16" border="0" alt="Arquivo PNG">
+                    {17ED5C51-6261-4117-AA4F-93E0ED4193FC}-20250508-234226.png &nbsp;&nbsp;&nbsp;
+                            </td>
+        </tr>
+        
+    
+
+
+    
+                        <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Rank:</b></td>
+                <td id="customfield_10019-10038-value" class="value" bgcolor="#ffffff" width="80%">      0|i0003b:
+  </td>
+            </tr>
+                                <tr>
+                <td bgcolor="#f0f0f0" width="20%" valign="top"><b>Sprint:</b></td>
+                <td id="customfield_10020-10038-value" class="value" bgcolor="#ffffff" width="80%">Sprint 1</td>
+            </tr>
+            </table>
+
+    <br/>
+
+    <table cellpadding="2" cellspacing="0" border="0" width="100%" align="center">
+    <tr>
+        <td bgcolor="#bbbbbb" width="1%" nowrap align="center">
+            &nbsp;<font color="#ffffff"><b>Descrição</b></font>&nbsp;
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    </table>
+
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr>
+        <td id="descriptionArea">
+            <p><b>1- Descriçao detalhada</b></p>
+
+<p>Usuário cadastrado com senha inferior a 5 caracteres foi permitido, contrariando critério de aceitação estabelecido.</p>
+
+<p><b>2- Passo a passo</b></p>
+
+<ol>
+	<li>Cadastrar usuário através de request POST na url: <tt><a href="https://compassuol.serverest.dev/usuarios" class="external-link" rel="nofollow noreferrer">https://compassuol.serverest.dev/usuarios</a></tt> utilizando o payload:
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="code-json">{
+  <span class="code-quote">"nome"</span>: <span class="code-quote">"Luis"</span>,
+  <span class="code-quote">"email"</span>: <span class="code-quote">"luis2@teste.com"</span>,
+  <span class="code-quote">"password"</span>: <span class="code-quote">"test"</span>,
+  <span class="code-quote">"administrador"</span>: <span class="code-quote">"<span class="code-keyword">true</span>"</span>
+}</pre>
+</div></div></li>
+</ol>
+
+
+<p><b>3- Resultado(s) esperado(s)</b></p>
+
+<ul>
+	<li>O sistema deve retornar o status code 400 não permitindo a criação de novo usuário com senha inferior a 5 caracteres.</li>
+</ul>
+
+
+<p><b>4- Resultado Atual</b></p>
+
+<ul>
+	<li>O sistema retorna o Status Code: 201 e cria novo usuário com sucesso.</li>
+</ul>
+
+
+<p><b>5 - Gravidade</b></p>
+
+<ul>
+	<li><del>Alta - Há uma vulnerabilidade de segurança, permitindo ataques de força bruta em senhas tão curtas.</del></li>
+	<li>Média</li>
+	<li>Baixa</li>
+</ul>
+
+
+<p><b>6 - Prioridade</b></p>
+
+<ul>
+	<li>Imediata</li>
+	<li><del>Alta - Deve ser corrigido o mais breve possível para evitar problemas com contas invadidas.</del></li>
+	<li>Média</li>
+	<li>Baixa</li>
+</ul>
+
+
+<p><b>7 - Ambiente onde ocorre</b></p>
+
+<ul>
+	<li>Ambiente: Testes (Postman e Swagger UI)</li>
+	<li>URL:  <a href="https://compassuol.serverest.dev/usuarios" class="external-link" rel="nofollow noreferrer">https://compassuol.serverest.dev/usuarios</a></li>
+	<li>Rota testada: POST/usuarios</li>
+	<li>Navegador: Google Chrome</li>
+	<li>Ferramentas: Swagger UI, Postman</li>
+</ul>
+
+
+<p><b>8 - Responsável</b></p>
+
+<p>Equipe de Desenvolvimento</p>
+
+<p><b>9 - Anexos</b></p>
+
+<p>!</p>
+{17ED5C51-6261-4117-AA4F-93E0ED4193FC}-20250508-234226.png|width=1409,height=825,alt="{17ED5C51-6261-4117-AA4F-93E0ED4193FC}
+<p>-20250508-234226.png"!</p>
+
+
+
+<p><b>10 - Relação com outros defeitos ou requisitos</b></p>
+
+<p>Não foi identificado.</p>
+
+<p><b>11</b> - <b>Notas Adicionais:</b></p>
+            <br/>
+        </td>
+    </tr>
+    </table>
+
+Gerado em Mon May 12 17:58:04 UTC 2025 por Luis Magris usando JIRA 1001.0.0-SNAPSHOT#100283-rev:ae90960f6ce4b93d8be8d846e57df479663fa457.
+
+</body>
+</html>
