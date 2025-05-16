@@ -1,32 +1,48 @@
 import pytest
 from calculadora import Calculadora
-from dados_de_teste import *
+from data_set import *
 
 @pytest.fixture
 def calculadora():
     return Calculadora()
 
+@pytest.mark.parametrize("a", data_set_a)
+@pytest.mark.parametrize("b", data_set_b) 
+def test_soma(a, b, calculadora):
+    expected_soma = a + b
+    assert calculadora.soma(a, b) == expected_soma
 
-@pytest.mark.parametrize("a, b, resultado_esperado", dados_soma)
-def test_soma(a, b, resultado_esperado, calculadora):
-    assert calculadora.soma(a, b) == resultado_esperado
+@pytest.mark.parametrize("a", data_set_a)
+@pytest.mark.parametrize("b", data_set_b)   
+def test_subtracao(a, b, calculadora):
+    expected_subtracao = a - b
+    assert calculadora.sub(a, b) == expected_subtracao
 
-@pytest.mark.parametrize("a, b, resultado_esperado", dados_subtracao)
-def test_subtracao(a, b, resultado_esperado, calculadora):
-    assert calculadora.sub(a, b) == resultado_esperado
+@pytest.mark.parametrize("a", data_set_a)
+@pytest.mark.parametrize("b", data_set_b) 
+def test_multiplicacao(a, b, calculadora):
+    expected_multiplicacao = a * b
+    assert calculadora.mult(a, b) == expected_multiplicacao
 
-@pytest.mark.parametrize("a, b, resultado_esperado", dados_multiplicacao)
-def test_multiplicacao(a, b, resultado_esperado, calculadora):
-    assert calculadora.mult(a, b) == resultado_esperado
+@pytest.mark.parametrize("a", data_set_a)
+@pytest.mark.parametrize("b", data_set_b) 
+def test_divisao(a, b, calculadora):
+    if b == 0:
+        expected_divisao = 0
+    else:
+        expected_divisao = a / b
+    assert calculadora.div(a, b) == expected_divisao
 
-@pytest.mark.parametrize("a, b, resultado_esperado", dados_divisao)
-def test_divisao(a, b, resultado_esperado, calculadora):
-    assert calculadora.div(a, b) == resultado_esperado
+@pytest.mark.parametrize("a", data_set_a)
+@pytest.mark.parametrize("b", data_set_b) 
+def test_potencia(a, b, calculadora):
+    if a < 0 and b % 1 != 0:
+        expected_potencia = None
+    expected_potencia = a ** b
+    assert calculadora.pow(a, b) == expected_potencia
 
-@pytest.mark.parametrize("a, b, resultado_esperado", dados_potencia)
-def test_potencia(a, b, resultado_esperado, calculadora):
-    assert calculadora.pow(a, b) == resultado_esperado
-
-@pytest.mark.parametrize("a, b, resultado_esperado", dados_porcetagem)
-def test_porcentagem(a, b, resultado_esperado, calculadora):
-    assert calculadora.per(a, b) == resultado_esperado
+@pytest.mark.parametrize("a", data_set_a)
+@pytest.mark.parametrize("b", data_set_b) 
+def test_porcentagem(a, b, calculadora):
+    expected_porcentagem = (a * b) / 100
+    assert calculadora.per(a, b) == expected_porcentagem
