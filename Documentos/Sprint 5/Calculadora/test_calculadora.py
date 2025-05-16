@@ -36,8 +36,6 @@ def test_divisao(a, b, calculadora):
 @pytest.mark.parametrize("a", data_set_a)
 @pytest.mark.parametrize("b", data_set_b) 
 def test_potencia(a, b, calculadora):
-    if a < 0 and b % 1 != 0:
-        expected_potencia = None
     expected_potencia = a ** b
     assert calculadora.pow(a, b) == expected_potencia
 
