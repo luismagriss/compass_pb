@@ -23,14 +23,52 @@ Os testes foram desenvolvidos **antes da implementação dos métodos**, seguind
 - Python 3.10+
 - Pytest
 
-##  Como executar os testes
+##  Estrutura de Pastas
+   ```plaintext
+   Calculadora/
+   ├── src/
+   │ └── __init__.py
+   │ └── calculadora.py
+   ├── tests/
+   │ ├── init.py
+   │ ├── conftest.py
+   │ ├── data_set.py
+   │ ├── test_soma.py
+   │ ├── test_subtracao.py
+   │ ├── test_multiplicacao.py
+   │ ├── test_divisao.py
+   │ ├── test_potenciacao.py
+   │ └── test_porcentagem.py
+````
 
+
+##  Como executar os testes
 1. Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
-   
-2.(Opcional) Crie um ambiente virtual:
-   ```bash
+   ````
+2. (Opcional) Crie um ambiente virtual:
+   ```bash      
    python3 -m venv venv
-   source venv/bin/activate  # Linux/macOS
-   .\venv\Scripts\activate    # Windows
+   source venv/bin/activate   # Linux/macOS
+   .\venv\Scripts\activate   # Windows
+   
+4. Instale as dependências
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Execute os testes
+   ```bash
+   pytest --cov=src tests/
+
+## Relatório de Cobertura
+Gerar relatório visual da cobertura de testes
+```bash
+pytest --cov=src tests/ --cov-report html
+```
+## Autor
+Luis Magris de Sousa
+[https://github.com/luismagriss]
+
+## Referências
+ChatGPT - usado para tirar dúvidas e entender erros.
