@@ -45,7 +45,7 @@ Os testes foram desenvolvidos **antes da implementação dos métodos**, seguind
 ##  Como executar os testes
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone git@github.com:luismagriss/compass_pb.git
    ````
 2. (Opcional) Crie um ambiente virtual:
    ```bash      
