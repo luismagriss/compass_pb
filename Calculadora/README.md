@@ -28,4 +28,3 @@ Os testes foram desenvolvidos **antes da implementação dos métodos**, seguind
 1. Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
