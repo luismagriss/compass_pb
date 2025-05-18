@@ -28,3 +28,9 @@ Os testes foram desenvolvidos **antes da implementação dos métodos**, seguind
 1. Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
+   
+2.(Opcional) Crie um ambiente virtual:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # Linux/macOS
+   .\venv\Scripts\activate    # Windows
