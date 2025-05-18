@@ -8,5 +8,6 @@ def test_divisao(a, b, calculadora):
     assert calculadora.div(a, b) == expected_divisao
     
 def test_divisão_zero(calculadora):
-    with pytest.raises(ZeroDivisionError):
+    with pytest.raises(ZeroDivisionError) as exec_info:
         calculadora.div(12,0)
+    assert "Não é possível dividir por zero" in str(exec_info)
