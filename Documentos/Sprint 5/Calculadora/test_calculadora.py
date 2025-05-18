@@ -28,7 +28,7 @@ def test_multiplicacao(a, b, calculadora):
 @pytest.mark.parametrize("b", data_set_b) 
 def test_divisao(a, b, calculadora):
     if b == 0:
-        expected_divisao = 0
+        expected_divisao = None
     else:
         expected_divisao = a / b
     assert calculadora.div(a, b) == expected_divisao
