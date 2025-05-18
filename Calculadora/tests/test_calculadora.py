@@ -1,6 +1,6 @@
 import pytest
-from calculadora import Calculadora
-from data_set import *
+from src.calculadora import Calculadora
+from tests.data_set import *
 
 @pytest.fixture
 def calculadora():
