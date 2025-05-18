@@ -9,8 +9,6 @@ class Calculadora:
         return a * b
 
     def div(self, a, b):
-        if b == 0:
-            return None
         return a / b
 
     def pow(self, a, b):
