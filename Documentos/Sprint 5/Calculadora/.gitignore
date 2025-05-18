@@ -1,0 +1,50 @@
+# ⛔ Ignora arquivos de cache e compilação Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# 🧪 Ignora cache de testes do pytest
+.pytest_cache/
+
+# 🧪 Ignora arquivo de cobertura de testes
+.coverage
+htmlcov/
+.cache/
+
+# 🧪 Relatórios de pytest e ferramentas de qualidade
+.tox/
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# 🧪 mypy (verificação de tipos)
+.mypy_cache/
+
+# 📦 Arquivos de ambiente virtual (venv, pipenv, poetry)
+venv/
+.venv/
+env/
+ENV/
+pip-selfcheck.json
+Pipfile.lock
+
+# 🧪 pytest-snapshot plugin
+.snapshots/
+
+# 🔧 IDEs e editores
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# 🧪 Arquivos temporários ou de backup
+*.swp
+*.bak
+*.tmp
+*~
+
+# 📁 Ignora arquivos e pastas de sistema
+.DS_Store
+Thumbs.db
