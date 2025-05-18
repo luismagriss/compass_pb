@@ -10,7 +10,7 @@ class Calculadora:
 
     def div(self, a, b):
         if b == 0:
-            return None
+            raise ZeroDivisionError("Não é possível dividir por zero")
         return a / b
 
     def pow(self, a, b):
