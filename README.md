@@ -3,7 +3,7 @@ Arquivos gerado durante o Programa de Bolsas em Engenharia de Qualidade de Softw
 
 ## Estrutura do Repositório
 Calculadora/
-* Desenvolvilmento de testes e implementação de uma calculadora utilizando método TDD.
+* Implementação de uma calculadora utilizando método TDD.
 
 Documentos/
 * Documentação e materiais de apoio produzidos ao longo do programa.
