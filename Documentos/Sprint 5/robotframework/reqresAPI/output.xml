@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-05-21T18:26:47.257182" rpa="false" schemaversion="5">
+<suite id="s1" name="Api Testing User" source="/home/luisms/compass_pb/Documentos/Sprint 5/robotframework/reqresAPI/tests/api_testing_user.robot">
+<test id="s1-t1" name="Cenário 01 - Cadastro de usuário" line="5">
+<kw name="Gerar dados de um novo usuário" owner="api_testing_user">
+<kw name="Generate Random String" owner="String">
+<msg time="2025-05-21T18:26:47.331757" level="INFO">${random_user} = oiar3b</msg>
+<var>${random_user}</var>
+<arg>6</arg>
+<arg>[LOWER][NUMBERS]</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<status status="PASS" start="2025-05-21T18:26:47.331422" elapsed="0.001584"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-05-21T18:26:47.334126" level="INFO">${user_mail} = oiar3b@email.com</msg>
+<arg>${user_mail}</arg>
+<arg>${random_user}@email.com</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-05-21T18:26:47.333466" elapsed="0.000817"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-05-21T18:26:47.334734" level="INFO">oiar3b@email.com</msg>
+<arg>${user_mail}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-05-21T18:26:47.334458" elapsed="0.000478"/>
+</kw>
+<status status="PASS" start="2025-05-21T18:26:47.331023" elapsed="0.004067"/>
+</kw>
+<status status="PASS" start="2025-05-21T18:26:47.330181" elapsed="0.005411"/>
+</test>
+<status status="PASS" start="2025-05-21T18:26:47.259473" elapsed="0.077464"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Api Testing User" id="s1" pass="1" fail="0" skip="0">Api Testing User</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
