@@ -1,33 +1,36 @@
 *** Settings ***
-Resource  ../resources/api_testing_user.resource
+Resource    ../resources/api_testing_user.resource
 
 *** Test Cases ***
-Cenário: POST Fazer login
-    Criar sessão no ReqRes
-    POST Endpoint /login
-    Validar status code "200"
-
-Cenário: POST Fazer login UNSUCCESSFUL
-    Criar sessão no ReqRes
-    POST Endpoint /login - sem senha
-    Validar status code "400"
-
-Cenário: POST Logout
-    Criar sessão no ReqRes
-    POST Endpoint /logout
-    Validar status code "200"
-
 Cenário: POST Cadastro de usuário
-    [tags]    POST    user
+    [Tags]    POST    user
     Criar sessão no ReqRes
     POST Endpoint /register
     Validar status code "200"
 
 Cenário: POST Cadastro de usuário UNSUCCESSFUL
-    [tags]    POST    user
+    [Tags]    POST    user
     Criar sessão no ReqRes
     POST Endpoint /register - sem senha
     Validar status code "400"
+
+Cenário: POST Fazer login
+    [Tags]    POST    login
+    Criar sessão no ReqRes
+    POST Endpoint /login
+    Validar status code "200"
+
+Cenário: POST Fazer login UNSUCCESSFUL
+    [Tags]    POST    login
+    Criar sessão no ReqRes
+    POST Endpoint /login - sem senha
+    Validar status code "400"
+
+Cenário: POST Logout
+    [Tags]    POST    logout
+    Criar sessão no ReqRes
+    POST Endpoint /logout
+    Validar status code "200"
 
 Cenário: GET Listar todos os usuários
     [Tags]    GET     user
