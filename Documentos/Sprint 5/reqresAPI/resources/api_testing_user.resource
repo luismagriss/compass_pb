@@ -3,6 +3,13 @@ Library                      String
 Library                      RequestsLibrary
 
 *** Keywords ***
+    
+Criar sessão no ReqRes
+    ${headers}               Create Dictionary  accept=application/json  Content-Type=application/json  x-api-key=reqres-free-v1
+    Create Session           ReqRes    https://reqres.in/api/  ${headers}
+
+Validar status code "${statuscode}"
+    Should Be True           ${response.status_code} == ${statuscode}
 
 POST Endpoint /login
     ${body}                  Create Dictionary
@@ -30,12 +37,7 @@ POST Endpoint /logout
     ...                      alias=ReqRes
     ...                      url=/logout
     Set Global Variable      ${response}
-Validar status code "${statuscode}"
-    Should Be True           ${response.status_code} == ${statuscode}
-    
-Criar sessão no ReqRes
-    ${headers}               Create Dictionary  accept=application/json  Content-Type=application/json  x-api-key=reqres-free-v1
-    Create Session           ReqRes    https://reqres.in/api/  ${headers}
+
 POST Endpoint /register
     ${body}                  Create Dictionary
     ...                      email=eve.holt@reqres.in
@@ -94,7 +96,7 @@ PATCH Endpoint /users/id
     ${payload}               Create Dictionary
     ...                      name=joao
     ...                      job=jogador
-    ${response}              PUT On Session
+    ${response}              PATCH On Session
     ...                      alias=ReqRes
     ...                      url=/users/5
     ...                      json=${payload}
@@ -103,7 +105,7 @@ PATCH Endpoint /users/id
     Log                      ${response.content}
 
 DELETE Endpoint /users/id
-    ${response}              PUT On Session
+    ${response}              DELETE On Session
     ...                      alias=ReqRes
     ...                      url=/users/5
     Set Global Variable      ${response}
@@ -138,7 +140,7 @@ PUT Endpoint /resource/id
     Log                      ${response.content}
 
 DELETE Endpoint /resource/id
-    ${response}              GET On Session
+    ${response}              DELETE On Session
     ...                      alias=ReqRes
     ...                      url=/unknown/3
     Set Global Variable      ${response}
