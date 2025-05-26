@@ -1,87 +1,96 @@
 *** Settings ***
-Resource    ../resources/api_testing_user.resource
+Documentation     Suite de testes para validação da ReqRes API
+...               Testa todos os principais endpoints e operações da ReqRes API
+Resource          ../resources/api_testing_user.resource
+Suite Setup       Criar sessão no ReqRes
+Test Tags         api    reqres
 
 *** Test Cases ***
-Cenário: POST Cadastro de usuário
-    [Tags]    POST    user
-    Criar sessão no ReqRes
+Cenário 01: POST Cadastro de usuário com sucesso
+    [Tags]    POST    user    register    success
     POST Endpoint /register
     Validar status code "200"
+    Validar resposta contém campo "token"
+    Validar resposta contém campo "id"
 
-Cenário: POST Cadastro de usuário UNSUCCESSFUL
-    [Tags]    POST    user
-    Criar sessão no ReqRes
+Cenário 02: POST Cadastro de usuário sem senha
+    [Tags]    POST    user    register    error
     POST Endpoint /register - sem senha
     Validar status code "400"
+    Validar resposta contém campo "error"
+    Validar valor do campo "error" é "Missing password"
 
-Cenário: POST Fazer login
-    [Tags]    POST    login
-    Criar sessão no ReqRes
+Cenário 03: POST Login com sucesso
+    [Tags]    POST    login    success
     POST Endpoint /login
     Validar status code "200"
+    Validar resposta contém campo "token"
 
-Cenário: POST Fazer login UNSUCCESSFUL
-    [Tags]    POST    login
-    Criar sessão no ReqRes
+Cenário 04: POST Login sem senha
+    [Tags]    POST    login    error
     POST Endpoint /login - sem senha
     Validar status code "400"
+    Validar resposta contém campo "error"
+    Validar valor do campo "error" é "Missing password"
 
-Cenário: POST Logout
+Cenário 05: POST Logout
     [Tags]    POST    logout
-    Criar sessão no ReqRes
     POST Endpoint /logout
     Validar status code "200"
 
-Cenário: GET Listar todos os usuários
-    [Tags]    GET     user
-    Criar sessão no ReqRes
+Cenário 06: GET Listar todos os usuários
+    [Tags]    GET    user    list
     GET Endpoint /users
     Validar status code "200"
+    Validar resposta contém campo "data"
+    Validar resposta contém campo "total"
 
-Cenário: GET Listar um usuário
-    [Tags]    GET    user
-    Criar sessão no ReqRes
-    GET Endpoint /users/id
+Cenário 07: GET Listar um usuário específico
+    [Tags]    GET    user    single
+    GET Endpoint /users/id    2
     Validar status code "200"
+    Validar resposta contém campo "data"
+    Validar valor do campo "data.id" é "2"
 
-Cenário: PUT Editar um usuário
-    [tags]    PUT    user
-    Criar sessão no ReqRes
-    PUT Endpoint /users/id
+Cenário 08: PUT Atualizar um usuário
+    [Tags]    PUT    user    update
+    PUT Endpoint /users/id    3
     Validar status code "200"
+    Validar resposta contém campo "updatedAt"
+    Validar resposta contém campo "name"
 
-Cenário: PATCH Editar um usuário
-    [Tags]    PATCH    user
-    Criar sessão no ReqRes
-    PATCH Endpoint /users/id
+Cenário 09: PATCH Atualizar parcialmente um usuário
+    [Tags]    PATCH    user    update
+    PATCH Endpoint /users/id    5
     Validar status code "200"
+    Validar resposta contém campo "updatedAt"
 
-Cenário: DELETE Excluir um usuário
+Cenário 10: DELETE Excluir um usuário
     [Tags]    DELETE    user
-    Criar sessão no ReqRes
-    DELETE Endpoint /users/id
-    Validar status code "200"
+    DELETE Endpoint /users/id    5
+    Validar status code "204"
 
-Cenário: GET Listar um recurso
-    [Tags]    GET    resource
-    Criar sessão no ReqRes
-    GET Endpoint /resource/id
+Cenário 11: GET Listar um recurso específico
+    [Tags]    GET    resource    single
+    GET Endpoint /resource/id    2
     Validar status code "200"
+    Validar resposta contém campo "data"
+    Validar resposta contém campo "data.name"
 
-Cenário: PUT Editar um recurso
-    [Tags]    PUT    resource
-    Criar sessão no ReqRes
-    PUT Endpoint /resource/id
+Cenário 12: PUT Atualizar um recurso
+    [Tags]    PUT    resource    update
+    PUT Endpoint /resource/id    2
     Validar status code "200"
+    Validar resposta contém campo "updatedAt"
 
-Cenário: DELETE Excluir um recurso
+Cenário 13: DELETE Excluir um recurso
     [Tags]    DELETE    resource
-    Criar sessão no ReqRes
-    DELETE Endpoint /resource/id
-    Validar status code "200"
+    DELETE Endpoint /resource/id    3
+    Validar status code "204"
 
-Cenário: GET Listar todos os recursos
-    [Tags]    GET    resource
-    Criar sessão no ReqRes
+Cenário 14: GET Listar todos os recursos
+    [Tags]    GET    resource    list
     GET Endpoint /resource
     Validar status code "200"
+    Validar resposta contém campo "data"
+    Validar resposta contém campo "total"
