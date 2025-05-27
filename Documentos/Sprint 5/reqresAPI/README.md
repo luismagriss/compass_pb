@@ -62,4 +62,4 @@ reqresAPI/
 
 ## Autor
 
-[Luis Magris de Sousa](https://github.com/luismagriss)
+* [Luis Magris de Sousa](https://github.com/luismagriss)
