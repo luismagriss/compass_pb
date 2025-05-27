@@ -1,103 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-05-26T18:58:32.569743" rpa="false" schemaversion="5">
-<suite id="s1" name="Api Testing User" source="/home/luisms/compass_pb/Documentos/Sprint 5/reqresAPI/tests/api_testing_user.robot">
-<kw name="Criar sessão no ReqRes" owner="api_testing_user" type="SETUP">
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-05-27T17:34:17.235012" rpa="false" schemaversion="5">
+<suite id="s1" name="Auth Tests &amp; Users Tests &amp; Resources Tests">
+<suite id="s1-s1" name="Auth Tests" source="/home/luisms/compass_pb/Documentos/Sprint 5/reqresAPI/tests/auth/auth_tests.robot">
+<kw name="Criar sessão no ReqRes" owner="common" type="SETUP">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-05-26T18:58:32.627357" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'}</msg>
+<msg time="2025-05-27T17:34:17.294998" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'}</msg>
 <var>${headers}</var>
 <arg>accept=application/json</arg>
 <arg>Content-Type=application/json</arg>
 <arg>x-api-key=reqres-free-v1</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-05-26T18:58:32.627111" elapsed="0.000282"/>
+<status status="PASS" start="2025-05-27T17:34:17.294715" elapsed="0.000312"/>
 </kw>
 <kw name="Create Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:32.627728" level="INFO">Creating Session using : alias=ReqRes, url=https://reqres.in/api, headers={'accept': 'application/json', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<msg time="2025-05-27T17:34:17.295371" level="INFO">Creating Session using : alias=ReqRes, url=https://reqres.in/api, headers={'accept': 'application/json', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
 <arg>ReqRes</arg>
 <arg>${BASE_URL}</arg>
 <arg>${headers}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<status status="PASS" start="2025-05-26T18:58:32.627513" elapsed="0.000362"/>
+<status status="PASS" start="2025-05-27T17:34:17.295149" elapsed="0.000379"/>
 </kw>
 <doc>Cria uma sessão na API ReqRes com os headers apropriados</doc>
-<status status="PASS" start="2025-05-26T18:58:32.626644" elapsed="0.001281"/>
+<status status="PASS" start="2025-05-27T17:34:17.294238" elapsed="0.001344"/>
 </kw>
-<test id="s1-t1" name="Cenário 01: POST Cadastro de usuário com sucesso" line="9">
-<kw name="POST Endpoint /register" owner="api_testing_user">
+<test id="s1-s1-t1" name="Cenário 01: POST Cadastro de usuário com sucesso" line="9">
+<kw name="POST Endpoint /register" owner="auth_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-05-26T18:58:32.628726" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'pistol'}</msg>
+<msg time="2025-05-27T17:34:17.296328" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'pistol'}</msg>
 <var>${body}</var>
 <arg>email=${DEFAULT_EMAIL}</arg>
 <arg>password=${REGISTER_PASSWORD}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-05-26T18:58:32.628500" elapsed="0.000245"/>
+<status status="PASS" start="2025-05-27T17:34:17.296144" elapsed="0.000202"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:33.202868" level="INFO">POST Request : url=https://reqres.in/api/register 
+<msg time="2025-05-27T17:34:17.883031" level="INFO">POST Request : url=https://reqres.in/api/register 
  path_url=/api/register 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '53'} 
  body=b'{"email": "eve.holt@reqres.in", "password": "pistol"}' 
  </msg>
-<msg time="2025-05-26T18:58:33.203048" level="INFO">POST Response : url=https://reqres.in/api/register 
+<msg time="2025-05-27T17:34:17.883154" level="INFO">POST Response : url=https://reqres.in/api/register 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:33 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '946088d93fdbcb5c-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296713&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=i%2FVqjgM9FhOr%2BiD%2FWrMMqZOdUV%2F3h7K%2BCjITihpuy4E%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296713&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=i%2FVqjgM9FhOr%2BiD%2FWrMMqZOdUV%2F3h7K%2BCjITihpuy4E%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Etag': 'W/"24-4iP0za1geN2he+ohu8F0FhCjLks"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=57867&amp;min_rtt=57148&amp;rtt_var=16715&amp;sent=5&amp;recv=8&amp;lost=0&amp;retrans=0&amp;sent_bytes=2837&amp;recv_bytes=939&amp;delivery_rate=73901&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=469&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:18 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '94684acce93acb59-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378058&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XKD8Abj48kSnWuSo00RsM8jvstN%2FjxqJVfFf1dFI%2FeA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378058&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XKD8Abj48kSnWuSo00RsM8jvstN%2FjxqJVfFf1dFI%2FeA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Etag': 'W/"24-4iP0za1geN2he+ohu8F0FhCjLks"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=57587&amp;min_rtt=56809&amp;rtt_var=12723&amp;sent=5&amp;recv=9&amp;lost=0&amp;retrans=0&amp;sent_bytes=2837&amp;recv_bytes=939&amp;delivery_rate=74176&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=8eb3c49ece0d294e&amp;ts=467&amp;x=0"'} 
  body={"id":4,"token":"QpwL5tke4Pnpja7X4"} 
  </msg>
-<msg time="2025-05-26T18:58:33.203110" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:17.883215" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:33.203245" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:17.883366" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/register</arg>
 <arg>json=${body}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:32.628818" elapsed="0.574449"/>
+<status status="PASS" start="2025-05-27T17:34:17.296423" elapsed="0.586966"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.203657" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:17.883814" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.203449" elapsed="0.000241"/>
+<status status="PASS" start="2025-05-27T17:34:17.883598" elapsed="0.000250"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.204175" level="INFO">Response: {'id': 4, 'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<msg time="2025-05-27T17:34:17.884292" level="INFO">Response: {'id': 4, 'token': 'QpwL5tke4Pnpja7X4'}</msg>
 <arg>Response: ${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.203772" elapsed="0.000439"/>
+<status status="PASS" start="2025-05-27T17:34:17.883938" elapsed="0.000389"/>
 </kw>
 <doc>Cadastra um novo usuário com credenciais válidas.</doc>
-<status status="PASS" start="2025-05-26T18:58:32.628310" elapsed="0.575953"/>
+<status status="PASS" start="2025-05-27T17:34:17.295974" elapsed="0.588401"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.204649" elapsed="0.000537"/>
+<status status="PASS" start="2025-05-27T17:34:17.884756" elapsed="0.000477"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.205524" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:17.885597" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.205265" elapsed="0.000290"/>
+<status status="PASS" start="2025-05-27T17:34:17.885310" elapsed="0.000323"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:33.204449" elapsed="0.001145"/>
+<status status="PASS" start="2025-05-27T17:34:17.884560" elapsed="0.001112"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;token&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;token&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:33.206057" level="INFO">${fields} = ['token']</msg>
+<msg time="2025-05-27T17:34:17.886126" level="INFO">${fields} = ['token']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.205939" elapsed="0.000136"/>
+<status status="PASS" start="2025-05-27T17:34:17.886010" elapsed="0.000133"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.206467" level="INFO">${dict} = {'id': 4, 'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<msg time="2025-05-27T17:34:17.886495" level="INFO">${dict} = {'id': 4, 'token': 'QpwL5tke4Pnpja7X4'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.206144" elapsed="0.000342"/>
+<status status="PASS" start="2025-05-27T17:34:17.886217" elapsed="0.000296"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -106,7 +107,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.206892" elapsed="0.000124"/>
+<status status="PASS" start="2025-05-27T17:34:17.886907" elapsed="0.000206"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -116,42 +117,42 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.206708" elapsed="0.000344"/>
+<status status="PASS" start="2025-05-27T17:34:17.886730" elapsed="0.000422"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.207495" level="INFO">${dict} = QpwL5tke4Pnpja7X4</msg>
+<msg time="2025-05-27T17:34:17.887618" level="INFO">${dict} = QpwL5tke4Pnpja7X4</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.207132" elapsed="0.000382"/>
+<status status="PASS" start="2025-05-27T17:34:17.887237" elapsed="0.000466"/>
 </kw>
 <var name="${part}">token</var>
-<status status="PASS" start="2025-05-26T18:58:33.206639" elapsed="0.000962"/>
+<status status="PASS" start="2025-05-27T17:34:17.886658" elapsed="0.001082"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:33.206531" elapsed="0.001096"/>
+<status status="PASS" start="2025-05-27T17:34:17.886557" elapsed="0.001207"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:33.205768" elapsed="0.001904"/>
+<status status="PASS" start="2025-05-27T17:34:17.885844" elapsed="0.001967"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;id&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;id&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:33.208123" level="INFO">${fields} = ['id']</msg>
+<msg time="2025-05-27T17:34:17.888451" level="INFO">${fields} = ['id']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.208011" elapsed="0.000130"/>
+<status status="PASS" start="2025-05-27T17:34:17.888295" elapsed="0.000178"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.208527" level="INFO">${dict} = {'id': 4, 'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<msg time="2025-05-27T17:34:17.888862" level="INFO">${dict} = {'id': 4, 'token': 'QpwL5tke4Pnpja7X4'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.208211" elapsed="0.000335"/>
+<status status="PASS" start="2025-05-27T17:34:17.888555" elapsed="0.000325"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -160,7 +161,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.208889" elapsed="0.000108"/>
+<status status="PASS" start="2025-05-27T17:34:17.889251" elapsed="0.000117"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -170,111 +171,112 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.208725" elapsed="0.000308"/>
+<status status="PASS" start="2025-05-27T17:34:17.889077" elapsed="0.000325"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.209464" level="INFO">${dict} = 4</msg>
+<msg time="2025-05-27T17:34:17.889864" level="INFO">${dict} = 4</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.209107" elapsed="0.000376"/>
+<status status="PASS" start="2025-05-27T17:34:17.889499" elapsed="0.000384"/>
 </kw>
 <var name="${part}">id</var>
-<status status="PASS" start="2025-05-26T18:58:33.208665" elapsed="0.000845"/>
+<status status="PASS" start="2025-05-27T17:34:17.889011" elapsed="0.000898"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:33.208583" elapsed="0.000945"/>
+<status status="PASS" start="2025-05-27T17:34:17.888920" elapsed="0.001008"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:33.207839" elapsed="0.001724"/>
+<status status="PASS" start="2025-05-27T17:34:17.888063" elapsed="0.001900"/>
 </kw>
 <tag>api</tag>
+<tag>auth</tag>
 <tag>POST</tag>
 <tag>register</tag>
 <tag>reqres</tag>
 <tag>success</tag>
 <tag>user</tag>
-<status status="PASS" start="2025-05-26T18:58:32.627987" elapsed="0.581693"/>
+<status status="PASS" start="2025-05-27T17:34:17.295638" elapsed="0.594459"/>
 </test>
-<test id="s1-t2" name="Cenário 02: POST Cadastro de usuário sem senha" line="16">
-<kw name="POST Endpoint /register - sem senha" owner="api_testing_user">
+<test id="s1-s1-t2" name="Cenário 02: POST Cadastro de usuário sem senha" line="16">
+<kw name="POST Endpoint /register - sem senha" owner="auth_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.210456" level="INFO">${body} = {'email': 'sydney@fife'}</msg>
+<msg time="2025-05-27T17:34:17.890879" level="INFO">${body} = {'email': 'sydney@fife'}</msg>
 <var>${body}</var>
 <arg>email=sydney@fife</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.210330" elapsed="0.000145"/>
+<status status="PASS" start="2025-05-27T17:34:17.890761" elapsed="0.000136"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:33.630364" level="INFO">POST Request : url=https://reqres.in/api/register 
+<msg time="2025-05-27T17:34:18.331904" level="INFO">POST Request : url=https://reqres.in/api/register 
  path_url=/api/register 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '24'} 
  body=b'{"email": "sydney@fife"}' 
  </msg>
-<msg time="2025-05-26T18:58:33.630480" level="INFO">POST Response : url=https://reqres.in/api/register 
+<msg time="2025-05-27T17:34:18.332001" level="INFO">POST Response : url=https://reqres.in/api/register 
  status=400, reason=Bad Request 
- headers={'Date': 'Mon, 26 May 2025 21:58:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '946088dc3a26cb5c-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296713&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=i%2FVqjgM9FhOr%2BiD%2FWrMMqZOdUV%2F3h7K%2BCjITihpuy4E%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296713&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=i%2FVqjgM9FhOr%2BiD%2FWrMMqZOdUV%2F3h7K%2BCjITihpuy4E%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '96', 'Ratelimit-Reset': '60', 'Etag': 'W/"1c-NmpazMScs9tOqR7eDEesn+pqC9Q"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=59247&amp;min_rtt=57148&amp;rtt_var=9658&amp;sent=9&amp;recv=12&amp;lost=0&amp;retrans=0&amp;sent_bytes=4633&amp;recv_bytes=1252&amp;delivery_rate=73901&amp;cwnd=255&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=909&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:18 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '94684acfdb7dcb59-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378058&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XKD8Abj48kSnWuSo00RsM8jvstN%2FjxqJVfFf1dFI%2FeA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378058&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XKD8Abj48kSnWuSo00RsM8jvstN%2FjxqJVfFf1dFI%2FeA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '96', 'Ratelimit-Reset': '60', 'Etag': 'W/"1c-NmpazMScs9tOqR7eDEesn+pqC9Q"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=59849&amp;min_rtt=56809&amp;rtt_var=10065&amp;sent=9&amp;recv=13&amp;lost=0&amp;retrans=0&amp;sent_bytes=4621&amp;recv_bytes=1252&amp;delivery_rate=74176&amp;cwnd=255&amp;unsent_bytes=0&amp;cid=8eb3c49ece0d294e&amp;ts=921&amp;x=0"'} 
  body={"error":"Missing password"} 
  </msg>
-<msg time="2025-05-26T18:58:33.630545" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:18.332070" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:33.630683" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<msg time="2025-05-27T17:34:18.332226" level="INFO">${response} = &lt;Response [400]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/register</arg>
 <arg>json=${body}</arg>
 <arg>expected_status=400</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.210544" elapsed="0.420162"/>
+<status status="PASS" start="2025-05-27T17:34:17.890968" elapsed="0.441285"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.631121" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<msg time="2025-05-27T17:34:18.332709" level="INFO">${response} = &lt;Response [400]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.630884" elapsed="0.000273"/>
+<status status="PASS" start="2025-05-27T17:34:18.332460" elapsed="0.000283"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.631585" level="INFO">Error response: {'error': 'Missing password'}</msg>
+<msg time="2025-05-27T17:34:18.333225" level="INFO">Error response: {'error': 'Missing password'}</msg>
 <arg>Error response: ${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.631239" elapsed="0.000381"/>
+<status status="PASS" start="2025-05-27T17:34:18.332832" elapsed="0.000466"/>
 </kw>
 <doc>Tenta cadastrar um novo usuário sem senha (falha esperada)</doc>
-<status status="PASS" start="2025-05-26T18:58:33.210173" elapsed="0.421496"/>
+<status status="PASS" start="2025-05-27T17:34:17.890599" elapsed="0.442753"/>
 </kw>
-<kw name="Validar status code &quot;400&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;400&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.632036" elapsed="0.000492"/>
+<status status="PASS" start="2025-05-27T17:34:18.333736" elapsed="0.000498"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.632847" level="INFO">Response status: 400</msg>
+<msg time="2025-05-27T17:34:18.334566" level="INFO">Response status: 400</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.632601" elapsed="0.000276"/>
+<status status="PASS" start="2025-05-27T17:34:18.334311" elapsed="0.000288"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:33.631853" elapsed="0.001062"/>
+<status status="PASS" start="2025-05-27T17:34:18.333536" elapsed="0.001104"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;error&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;error&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:33.633375" level="INFO">${fields} = ['error']</msg>
+<msg time="2025-05-27T17:34:18.335146" level="INFO">${fields} = ['error']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.633256" elapsed="0.000137"/>
+<status status="PASS" start="2025-05-27T17:34:18.335014" elapsed="0.000153"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.633808" level="INFO">${dict} = {'error': 'Missing password'}</msg>
+<msg time="2025-05-27T17:34:18.335603" level="INFO">${dict} = {'error': 'Missing password'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.633531" elapsed="0.000295"/>
+<status status="PASS" start="2025-05-27T17:34:18.335307" elapsed="0.000314"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -283,7 +285,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.634186" elapsed="0.000112"/>
+<status status="PASS" start="2025-05-27T17:34:18.335996" elapsed="0.000121"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -293,42 +295,42 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.634023" elapsed="0.000309"/>
+<status status="PASS" start="2025-05-27T17:34:18.335825" elapsed="0.000327"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.634742" level="INFO">${dict} = Missing password</msg>
+<msg time="2025-05-27T17:34:18.336589" level="INFO">${dict} = Missing password</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.634408" elapsed="0.000352"/>
+<status status="PASS" start="2025-05-27T17:34:18.336233" elapsed="0.000374"/>
 </kw>
 <var name="${part}">error</var>
-<status status="PASS" start="2025-05-26T18:58:33.633960" elapsed="0.000826"/>
+<status status="PASS" start="2025-05-27T17:34:18.335760" elapsed="0.000874"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:33.633867" elapsed="0.000939"/>
+<status status="PASS" start="2025-05-27T17:34:18.335664" elapsed="0.000991"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:33.633094" elapsed="0.001747"/>
+<status status="PASS" start="2025-05-27T17:34:18.334827" elapsed="0.001864"/>
 </kw>
-<kw name="Validar valor do campo &quot;error&quot; é &quot;Missing password&quot;" owner="api_testing_user" source_name="Validar valor do campo &quot;${field}&quot; é &quot;${expected_value}&quot;">
+<kw name="Validar valor do campo &quot;error&quot; é &quot;Missing password&quot;" owner="common" source_name="Validar valor do campo &quot;${field}&quot; é &quot;${expected_value}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:33.635316" level="INFO">${fields} = ['error']</msg>
+<msg time="2025-05-27T17:34:18.337266" level="INFO">${fields} = ['error']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.635207" elapsed="0.000127"/>
+<status status="PASS" start="2025-05-27T17:34:18.337050" elapsed="0.000234"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.635688" level="INFO">${dict} = {'error': 'Missing password'}</msg>
+<msg time="2025-05-27T17:34:18.337638" level="INFO">${dict} = {'error': 'Missing password'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.635405" elapsed="0.000301"/>
+<status status="PASS" start="2025-05-27T17:34:18.337357" elapsed="0.000299"/>
 </kw>
 <for flavor="IN ENUMERATE">
 <iter>
@@ -337,7 +339,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.636238" elapsed="0.000112"/>
+<status status="PASS" start="2025-05-27T17:34:18.338237" elapsed="0.000116"/>
 </kw>
 <arg>${index} &lt; ${fields.__len__() - 1}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -348,133 +350,134 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.635901" elapsed="0.000484"/>
+<status status="PASS" start="2025-05-27T17:34:18.337849" elapsed="0.000540"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.636857" level="INFO">${dict} = {'error': 'Missing password'}</msg>
+<msg time="2025-05-27T17:34:18.338806" level="INFO">${dict} = {'error': 'Missing password'}</msg>
 <var>${dict}</var>
 <arg>${index} &lt; ${fields.__len__() - 1}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.636461" elapsed="0.000415"/>
+<status status="PASS" start="2025-05-27T17:34:18.338471" elapsed="0.000353"/>
 </kw>
 <var name="${index}">0</var>
 <var name="${part}">error</var>
-<status status="PASS" start="2025-05-26T18:58:33.635842" elapsed="0.001077"/>
+<status status="PASS" start="2025-05-27T17:34:18.337788" elapsed="0.001063"/>
 </iter>
 <var>${index}</var>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:33.635742" elapsed="0.001203"/>
+<status status="PASS" start="2025-05-27T17:34:18.337692" elapsed="0.001180"/>
 </for>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.637314" level="INFO">${last_field} = error</msg>
+<msg time="2025-05-27T17:34:18.339283" level="INFO">${last_field} = error</msg>
 <var>${last_field}</var>
 <arg>${fields[-1]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.637015" elapsed="0.000317"/>
+<status status="PASS" start="2025-05-27T17:34:18.338984" elapsed="0.000317"/>
 </kw>
 <kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.637722" level="INFO">${actual_value} = Missing password</msg>
+<msg time="2025-05-27T17:34:18.339681" level="INFO">${actual_value} = Missing password</msg>
 <var>${actual_value}</var>
 <arg>${dict["${last_field}"]}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.637402" elapsed="0.000338"/>
+<status status="PASS" start="2025-05-27T17:34:18.339372" elapsed="0.000326"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${actual_value}</arg>
 <arg>${expected_value}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.637832" elapsed="0.000131"/>
+<status status="PASS" start="2025-05-27T17:34:18.339771" elapsed="0.000128"/>
 </kw>
 <doc>Valida que o campo na response tem o valor esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:33.635020" elapsed="0.002986"/>
+<status status="PASS" start="2025-05-27T17:34:18.336870" elapsed="0.003069"/>
 </kw>
 <tag>api</tag>
+<tag>auth</tag>
 <tag>error</tag>
 <tag>POST</tag>
 <tag>register</tag>
 <tag>reqres</tag>
 <tag>user</tag>
-<status status="PASS" start="2025-05-26T18:58:33.209891" elapsed="0.428243"/>
+<status status="PASS" start="2025-05-27T17:34:17.890301" elapsed="0.449763"/>
 </test>
-<test id="s1-t3" name="Cenário 03: POST Login com sucesso" line="23">
-<kw name="POST Endpoint /login" owner="api_testing_user">
+<test id="s1-s1-t3" name="Cenário 03: POST Login com sucesso" line="23">
+<kw name="POST Endpoint /login" owner="auth_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-05-26T18:58:33.638987" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}</msg>
+<msg time="2025-05-27T17:34:18.340900" level="INFO">${body} = {'email': 'eve.holt@reqres.in', 'password': 'cityslicka'}</msg>
 <var>${body}</var>
 <arg>email=${DEFAULT_EMAIL}</arg>
 <arg>password=${DEFAULT_PASSWORD}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.638782" elapsed="0.000224"/>
+<status status="PASS" start="2025-05-27T17:34:18.340719" elapsed="0.000200"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:34.064561" level="INFO">POST Request : url=https://reqres.in/api/login 
+<msg time="2025-05-27T17:34:18.781100" level="INFO">POST Request : url=https://reqres.in/api/login 
  path_url=/api/login 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '57'} 
  body=b'{"email": "eve.holt@reqres.in", "password": "cityslicka"}' 
  </msg>
-<msg time="2025-05-26T18:58:34.064662" level="INFO">POST Response : url=https://reqres.in/api/login 
+<msg time="2025-05-27T17:34:18.781200" level="INFO">POST Response : url=https://reqres.in/api/login 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '946088defc35cb5c-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296714&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=0mOYojG8DD6y5nIF%2BPwTfYzFuQNAxLtXxJdJJEE58Ec%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296714&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=0mOYojG8DD6y5nIF%2BPwTfYzFuQNAxLtXxJdJJEE58Ec%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '94', 'Ratelimit-Reset': '60', 'Etag': 'W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=60309&amp;min_rtt=57148&amp;rtt_var=9367&amp;sent=11&amp;recv=14&amp;lost=0&amp;retrans=0&amp;sent_bytes=5861&amp;recv_bytes=1595&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=1355&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:19 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '94684ad2bd81cb59-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378058&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XKD8Abj48kSnWuSo00RsM8jvstN%2FjxqJVfFf1dFI%2FeA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378058&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XKD8Abj48kSnWuSo00RsM8jvstN%2FjxqJVfFf1dFI%2FeA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '94', 'Ratelimit-Reset': '60', 'Etag': 'W/"1d-lGCrvD6B7Qzk11+2C98+nGhhuec"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=62010&amp;min_rtt=56809&amp;rtt_var=11870&amp;sent=11&amp;recv=15&amp;lost=0&amp;retrans=0&amp;sent_bytes=5838&amp;recv_bytes=1595&amp;delivery_rate=74176&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=8eb3c49ece0d294e&amp;ts=1374&amp;x=0"'} 
  body={"token":"QpwL5tke4Pnpja7X4"} 
  </msg>
-<msg time="2025-05-26T18:58:34.064728" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:18.781266" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:34.065008" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:18.781492" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/login</arg>
 <arg>json=${body}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:33.639077" elapsed="0.425962"/>
+<status status="PASS" start="2025-05-27T17:34:18.340997" elapsed="0.440519"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.066208" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:18.781895" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.065225" elapsed="0.001021"/>
+<status status="PASS" start="2025-05-27T17:34:18.781683" elapsed="0.000247"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.066680" level="INFO">Response: {'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<msg time="2025-05-27T17:34:18.782365" level="INFO">Response: {'token': 'QpwL5tke4Pnpja7X4'}</msg>
 <arg>Response: ${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.066334" elapsed="0.000382"/>
+<status status="PASS" start="2025-05-27T17:34:18.782012" elapsed="0.000395"/>
 </kw>
 <doc>Realiza o login com credenciais válidas</doc>
-<status status="PASS" start="2025-05-26T18:58:33.638619" elapsed="0.428147"/>
+<status status="PASS" start="2025-05-27T17:34:18.340563" elapsed="0.441893"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.067131" elapsed="0.000482"/>
+<status status="PASS" start="2025-05-27T17:34:18.782822" elapsed="0.000504"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.067925" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:18.783643" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.067688" elapsed="0.000268"/>
+<status status="PASS" start="2025-05-27T17:34:18.783403" elapsed="0.000270"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:34.066945" elapsed="0.001049"/>
+<status status="PASS" start="2025-05-27T17:34:18.782637" elapsed="0.001075"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;token&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;token&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:34.068455" level="INFO">${fields} = ['token']</msg>
+<msg time="2025-05-27T17:34:18.784223" level="INFO">${fields} = ['token']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.068335" elapsed="0.000138"/>
+<status status="PASS" start="2025-05-27T17:34:18.784084" elapsed="0.000157"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.068808" level="INFO">${dict} = {'token': 'QpwL5tke4Pnpja7X4'}</msg>
+<msg time="2025-05-27T17:34:18.784610" level="INFO">${dict} = {'token': 'QpwL5tke4Pnpja7X4'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.068542" elapsed="0.000284"/>
+<status status="PASS" start="2025-05-27T17:34:18.784316" elapsed="0.000312"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -483,7 +486,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.069203" elapsed="0.000113"/>
+<status status="PASS" start="2025-05-27T17:34:18.785058" elapsed="0.000119"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -493,110 +496,111 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.069033" elapsed="0.000318"/>
+<status status="PASS" start="2025-05-27T17:34:18.784880" elapsed="0.000334"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.069760" level="INFO">${dict} = QpwL5tke4Pnpja7X4</msg>
+<msg time="2025-05-27T17:34:18.785640" level="INFO">${dict} = QpwL5tke4Pnpja7X4</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.069424" elapsed="0.000354"/>
+<status status="PASS" start="2025-05-27T17:34:18.785294" elapsed="0.000364"/>
 </kw>
 <var name="${part}">token</var>
-<status status="PASS" start="2025-05-26T18:58:34.068960" elapsed="0.000846"/>
+<status status="PASS" start="2025-05-27T17:34:18.784806" elapsed="0.000879"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:34.068866" elapsed="0.000960"/>
+<status status="PASS" start="2025-05-27T17:34:18.784672" elapsed="0.001034"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:34.068164" elapsed="0.001698"/>
+<status status="PASS" start="2025-05-27T17:34:18.783897" elapsed="0.001847"/>
 </kw>
 <tag>api</tag>
+<tag>auth</tag>
 <tag>login</tag>
 <tag>POST</tag>
 <tag>reqres</tag>
 <tag>success</tag>
-<status status="PASS" start="2025-05-26T18:58:33.638328" elapsed="0.431651"/>
+<status status="PASS" start="2025-05-27T17:34:18.340269" elapsed="0.445600"/>
 </test>
-<test id="s1-t4" name="Cenário 04: POST Login sem senha" line="29">
-<kw name="POST Endpoint /login - sem senha" owner="api_testing_user">
+<test id="s1-s1-t4" name="Cenário 04: POST Login sem senha" line="29">
+<kw name="POST Endpoint /login - sem senha" owner="auth_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.070759" level="INFO">${body} = {'email': 'eve.holt@reqres.in'}</msg>
+<msg time="2025-05-27T17:34:18.786709" level="INFO">${body} = {'email': 'eve.holt@reqres.in'}</msg>
 <var>${body}</var>
 <arg>email=${DEFAULT_EMAIL}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.070608" elapsed="0.000169"/>
+<status status="PASS" start="2025-05-27T17:34:18.786550" elapsed="0.000177"/>
 </kw>
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:34.491355" level="INFO">POST Request : url=https://reqres.in/api/login 
+<msg time="2025-05-27T17:34:19.232397" level="INFO">POST Request : url=https://reqres.in/api/login 
  path_url=/api/login 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '31'} 
  body=b'{"email": "eve.holt@reqres.in"}' 
  </msg>
-<msg time="2025-05-26T18:58:34.491460" level="INFO">POST Response : url=https://reqres.in/api/login 
+<msg time="2025-05-27T17:34:19.232492" level="INFO">POST Response : url=https://reqres.in/api/login 
  status=400, reason=Bad Request 
- headers={'Date': 'Mon, 26 May 2025 21:58:34 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '946088e1bdc0cb5c-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296714&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=0mOYojG8DD6y5nIF%2BPwTfYzFuQNAxLtXxJdJJEE58Ec%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296714&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=0mOYojG8DD6y5nIF%2BPwTfYzFuQNAxLtXxJdJJEE58Ec%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '92', 'Ratelimit-Reset': '59', 'Etag': 'W/"1c-NmpazMScs9tOqR7eDEesn+pqC9Q"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=60038&amp;min_rtt=57148&amp;rtt_var=7567&amp;sent=14&amp;recv=17&amp;lost=0&amp;retrans=0&amp;sent_bytes=7152&amp;recv_bytes=1912&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=1794&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:19 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '28', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '94684ad58fd8cb59-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378059&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=pnNfgGu3mbek6QLIkYDuyXYV9ey9BaB6CHkOWCj2Yfc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378059&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=pnNfgGu3mbek6QLIkYDuyXYV9ey9BaB6CHkOWCj2Yfc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '92', 'Ratelimit-Reset': '59', 'Etag': 'W/"1c-NmpazMScs9tOqR7eDEesn+pqC9Q"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=61482&amp;min_rtt=56809&amp;rtt_var=9958&amp;sent=14&amp;recv=18&amp;lost=0&amp;retrans=0&amp;sent_bytes=7134&amp;recv_bytes=1912&amp;delivery_rate=74176&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=8eb3c49ece0d294e&amp;ts=1829&amp;x=0"'} 
  body={"error":"Missing password"} 
  </msg>
-<msg time="2025-05-26T18:58:34.491527" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:19.232551" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:34.491679" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<msg time="2025-05-27T17:34:19.232701" level="INFO">${response} = &lt;Response [400]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/login</arg>
 <arg>json=${body}</arg>
 <arg>expected_status=400</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.070844" elapsed="0.420862"/>
+<status status="PASS" start="2025-05-27T17:34:18.786799" elapsed="0.445934"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.492119" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<msg time="2025-05-27T17:34:19.233172" level="INFO">${response} = &lt;Response [400]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.491890" elapsed="0.000264"/>
+<status status="PASS" start="2025-05-27T17:34:19.232928" elapsed="0.000281"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.492592" level="INFO">Error response: {'error': 'Missing password'}</msg>
+<msg time="2025-05-27T17:34:19.233664" level="INFO">Error response: {'error': 'Missing password'}</msg>
 <arg>Error response: ${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.492231" elapsed="0.000467"/>
+<status status="PASS" start="2025-05-27T17:34:19.233317" elapsed="0.000458"/>
 </kw>
 <doc>Realiza uma requisição de login sem senha (falhe esperada)</doc>
-<status status="PASS" start="2025-05-26T18:58:34.070452" elapsed="0.422302"/>
+<status status="PASS" start="2025-05-27T17:34:18.786376" elapsed="0.447451"/>
 </kw>
-<kw name="Validar status code &quot;400&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;400&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.493121" elapsed="0.000507"/>
+<status status="PASS" start="2025-05-27T17:34:19.234200" elapsed="0.000491"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.493968" level="INFO">Response status: 400</msg>
+<msg time="2025-05-27T17:34:19.235020" level="INFO">Response status: 400</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.493704" elapsed="0.000296"/>
+<status status="PASS" start="2025-05-27T17:34:19.234770" elapsed="0.000281"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:34.492932" elapsed="0.001107"/>
+<status status="PASS" start="2025-05-27T17:34:19.234011" elapsed="0.001078"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;error&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;error&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:34.494484" level="INFO">${fields} = ['error']</msg>
+<msg time="2025-05-27T17:34:19.235538" level="INFO">${fields} = ['error']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.494371" elapsed="0.000131"/>
+<status status="PASS" start="2025-05-27T17:34:19.235423" elapsed="0.000132"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.494848" level="INFO">${dict} = {'error': 'Missing password'}</msg>
+<msg time="2025-05-27T17:34:19.235899" level="INFO">${dict} = {'error': 'Missing password'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.494573" elapsed="0.000293"/>
+<status status="PASS" start="2025-05-27T17:34:19.235626" elapsed="0.000291"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -605,7 +609,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.495253" elapsed="0.000127"/>
+<status status="PASS" start="2025-05-27T17:34:19.236281" elapsed="0.000116"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -615,42 +619,42 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.495061" elapsed="0.000356"/>
+<status status="PASS" start="2025-05-27T17:34:19.236114" elapsed="0.000319"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.495855" level="INFO">${dict} = Missing password</msg>
+<msg time="2025-05-27T17:34:19.236870" level="INFO">${dict} = Missing password</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.495501" elapsed="0.000373"/>
+<status status="PASS" start="2025-05-27T17:34:19.236512" elapsed="0.000377"/>
 </kw>
 <var name="${part}">error</var>
-<status status="PASS" start="2025-05-26T18:58:34.494998" elapsed="0.000903"/>
+<status status="PASS" start="2025-05-27T17:34:19.236049" elapsed="0.000868"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:34.494907" elapsed="0.001015"/>
+<status status="PASS" start="2025-05-27T17:34:19.235958" elapsed="0.000979"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:34.494206" elapsed="0.001755"/>
+<status status="PASS" start="2025-05-27T17:34:19.235259" elapsed="0.001713"/>
 </kw>
-<kw name="Validar valor do campo &quot;error&quot; é &quot;Missing password&quot;" owner="api_testing_user" source_name="Validar valor do campo &quot;${field}&quot; é &quot;${expected_value}&quot;">
+<kw name="Validar valor do campo &quot;error&quot; é &quot;Missing password&quot;" owner="common" source_name="Validar valor do campo &quot;${field}&quot; é &quot;${expected_value}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:34.496440" level="INFO">${fields} = ['error']</msg>
+<msg time="2025-05-27T17:34:19.237428" level="INFO">${fields} = ['error']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.496324" elapsed="0.000133"/>
+<status status="PASS" start="2025-05-27T17:34:19.237317" elapsed="0.000128"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.496803" level="INFO">${dict} = {'error': 'Missing password'}</msg>
+<msg time="2025-05-27T17:34:19.237807" level="INFO">${dict} = {'error': 'Missing password'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.496526" elapsed="0.000295"/>
+<status status="PASS" start="2025-05-27T17:34:19.237527" elapsed="0.000298"/>
 </kw>
 <for flavor="IN ENUMERATE">
 <iter>
@@ -659,7 +663,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.497528" elapsed="0.000117"/>
+<status status="PASS" start="2025-05-27T17:34:19.238339" elapsed="0.000109"/>
 </kw>
 <arg>${index} &lt; ${fields.__len__() - 1}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -670,175 +674,202 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.497169" elapsed="0.000511"/>
+<status status="PASS" start="2025-05-27T17:34:19.238010" elapsed="0.000472"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.498077" level="INFO">${dict} = {'error': 'Missing password'}</msg>
+<msg time="2025-05-27T17:34:19.238898" level="INFO">${dict} = {'error': 'Missing password'}</msg>
 <var>${dict}</var>
 <arg>${index} &lt; ${fields.__len__() - 1}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.497760" elapsed="0.000335"/>
+<status status="PASS" start="2025-05-27T17:34:19.238560" elapsed="0.000357"/>
 </kw>
 <var name="${index}">0</var>
 <var name="${part}">error</var>
-<status status="PASS" start="2025-05-26T18:58:34.496956" elapsed="0.001165"/>
+<status status="PASS" start="2025-05-27T17:34:19.237950" elapsed="0.000994"/>
 </iter>
 <var>${index}</var>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:34.496859" elapsed="0.001284"/>
+<status status="PASS" start="2025-05-27T17:34:19.237860" elapsed="0.001106"/>
 </for>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.498485" level="INFO">${last_field} = error</msg>
+<msg time="2025-05-27T17:34:19.239315" level="INFO">${last_field} = error</msg>
 <var>${last_field}</var>
 <arg>${fields[-1]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.498209" elapsed="0.000293"/>
+<status status="PASS" start="2025-05-27T17:34:19.239035" elapsed="0.000297"/>
 </kw>
 <kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.498873" level="INFO">${actual_value} = Missing password</msg>
+<msg time="2025-05-27T17:34:19.239701" level="INFO">${actual_value} = Missing password</msg>
 <var>${actual_value}</var>
 <arg>${dict["${last_field}"]}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.498569" elapsed="0.000322"/>
+<status status="PASS" start="2025-05-27T17:34:19.239401" elapsed="0.000317"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${actual_value}</arg>
 <arg>${expected_value}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.498958" elapsed="0.000145"/>
+<status status="PASS" start="2025-05-27T17:34:19.239785" elapsed="0.000120"/>
 </kw>
 <doc>Valida que o campo na response tem o valor esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:34.496145" elapsed="0.003001"/>
+<status status="PASS" start="2025-05-27T17:34:19.237146" elapsed="0.002798"/>
 </kw>
 <tag>api</tag>
+<tag>auth</tag>
 <tag>error</tag>
 <tag>login</tag>
 <tag>POST</tag>
 <tag>reqres</tag>
-<status status="PASS" start="2025-05-26T18:58:34.070179" elapsed="0.429095"/>
+<status status="PASS" start="2025-05-27T17:34:18.786072" elapsed="0.453991"/>
 </test>
-<test id="s1-t5" name="Cenário 05: POST Logout" line="36">
-<kw name="POST Endpoint /logout" owner="api_testing_user">
+<test id="s1-s1-t5" name="Cenário 05: POST Logout" line="36">
+<kw name="POST Endpoint /logout" owner="auth_keywords">
 <kw name="POST On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:34.943122" level="INFO">POST Request : url=https://reqres.in/api/logout 
+<msg time="2025-05-27T17:34:19.674247" level="INFO">POST Request : url=https://reqres.in/api/logout 
  path_url=/api/logout 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:34.943234" level="INFO">POST Response : url=https://reqres.in/api/logout 
+<msg time="2025-05-27T17:34:19.674365" level="INFO">POST Response : url=https://reqres.in/api/logout 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '946088e49fc9cb5c-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296715&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=k15AhKCtmeykGwl5Ik3OQ9FiQsRcGEg14WpEEJ%2Fctk0%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296715&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=k15AhKCtmeykGwl5Ik3OQ9FiQsRcGEg14WpEEJ%2Fctk0%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '90', 'Ratelimit-Reset': '59', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=62815&amp;min_rtt=57148&amp;rtt_var=11228&amp;sent=16&amp;recv=18&amp;lost=0&amp;retrans=0&amp;sent_bytes=8366&amp;recv_bytes=2176&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=2255&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:19 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '94684ad85a10cb59-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378059&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=pnNfgGu3mbek6QLIkYDuyXYV9ey9BaB6CHkOWCj2Yfc%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378059&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=pnNfgGu3mbek6QLIkYDuyXYV9ey9BaB6CHkOWCj2Yfc%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '90', 'Ratelimit-Reset': '59', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=62130&amp;min_rtt=56809&amp;rtt_var=8765&amp;sent=16&amp;recv=19&amp;lost=0&amp;retrans=0&amp;sent_bytes=8344&amp;recv_bytes=2176&amp;delivery_rate=74176&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=8eb3c49ece0d294e&amp;ts=2275&amp;x=0"'} 
  body={} 
  </msg>
-<msg time="2025-05-26T18:58:34.943382" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:19.674501" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:34.943540" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:19.674642" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/logout</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.499889" elapsed="0.443679"/>
+<status status="PASS" start="2025-05-27T17:34:19.240681" elapsed="0.433984"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.943976" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:19.675056" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.943762" elapsed="0.000247"/>
+<status status="PASS" start="2025-05-27T17:34:19.674834" elapsed="0.000255"/>
 </kw>
 <doc>Realiza uma requisição de logout</doc>
-<status status="PASS" start="2025-05-26T18:58:34.499739" elapsed="0.444323"/>
+<status status="PASS" start="2025-05-27T17:34:19.240518" elapsed="0.434621"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.944477" elapsed="0.000558"/>
+<status status="PASS" start="2025-05-27T17:34:19.675551" elapsed="0.000530"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:34.945373" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:19.676419" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.945127" elapsed="0.000283"/>
+<status status="PASS" start="2025-05-27T17:34:19.676160" elapsed="0.000293"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:34.944257" elapsed="0.001194"/>
+<status status="PASS" start="2025-05-27T17:34:19.675336" elapsed="0.001156"/>
 </kw>
 <tag>api</tag>
+<tag>auth</tag>
 <tag>logout</tag>
 <tag>POST</tag>
 <tag>reqres</tag>
-<status status="PASS" start="2025-05-26T18:58:34.499477" elapsed="0.446099"/>
+<status status="PASS" start="2025-05-27T17:34:19.240261" elapsed="0.436353"/>
 </test>
-<test id="s1-t6" name="Cenário 06: GET Listar todos os usuários" line="41">
-<kw name="GET Endpoint /users" owner="api_testing_user">
+<doc>Testes para endpoints de autenticação (login, register, logout)</doc>
+<status status="PASS" start="2025-05-27T17:34:17.249429" elapsed="2.427569"/>
+</suite>
+<suite id="s1-s2" name="Users Tests" source="/home/luisms/compass_pb/Documentos/Sprint 5/reqresAPI/tests/users/users_tests.robot">
+<kw name="Criar sessão no ReqRes" owner="common" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-27T17:34:19.681039" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<arg>x-api-key=reqres-free-v1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-27T17:34:19.680907" elapsed="0.000152"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-27T17:34:19.681268" level="INFO">Creating Session using : alias=ReqRes, url=https://reqres.in/api, headers={'accept': 'application/json', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>ReqRes</arg>
+<arg>${BASE_URL}</arg>
+<arg>${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-27T17:34:19.681136" elapsed="0.000259"/>
+</kw>
+<doc>Cria uma sessão na API ReqRes com os headers apropriados</doc>
+<status status="PASS" start="2025-05-27T17:34:19.680773" elapsed="0.000667"/>
+</kw>
+<test id="s1-s2-t1" name="Cenário 06: GET Listar todos os usuários" line="9">
+<kw name="GET Endpoint /users" owner="users_keywords">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:35.017530" level="INFO">GET Request : url=https://reqres.in/api/users 
+<msg time="2025-05-27T17:34:19.878874" level="INFO">GET Request : url=https://reqres.in/api/users 
  path_url=/api/users 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:35.017651" level="INFO">GET Response : url=https://reqres.in/api/users 
+<msg time="2025-05-27T17:34:19.878985" level="INFO">GET Response : url=https://reqres.in/api/users 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '946088e759f1cb5c-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748294279&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ETESaITt9nGGRqPrYsakhDayOGixv6zBXVFgG%2FjZm6Q%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748294279&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ETESaITt9nGGRqPrYsakhDayOGixv6zBXVFgG%2FjZm6Q%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '88', 'Ratelimit-Reset': '58', 'Etag': 'W/"41e-bY3U72nulxuwNd/TmihMEHjLmek"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'Cf-Cache-Status': 'HIT', 'Age': '2436', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=62226&amp;min_rtt=57148&amp;rtt_var=9599&amp;sent=19&amp;recv=20&amp;lost=0&amp;retrans=0&amp;sent_bytes=9630&amp;recv_bytes=2419&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=2331&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:20 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '94684adbdf04cabf-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748376962&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ZIT966U2ypmYQvYjrPg2U%2FnKxGDkuwqgG8qWxChtOUw%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748376962&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ZIT966U2ypmYQvYjrPg2U%2FnKxGDkuwqgG8qWxChtOUw%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Etag': 'W/"41e-bY3U72nulxuwNd/TmihMEHjLmek"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'Cf-Cache-Status': 'HIT', 'Age': '1098', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=57762&amp;min_rtt=57047&amp;rtt_var=16684&amp;sent=5&amp;recv=7&amp;lost=0&amp;retrans=0&amp;sent_bytes=2838&amp;recv_bytes=840&amp;delivery_rate=74036&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=a158f573c48c52e3&amp;ts=80&amp;x=0"'} 
  body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
  </msg>
-<msg time="2025-05-26T18:58:35.017719" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:19.879129" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:35.017882" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:19.879286" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/users</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:34.946235" elapsed="0.071671"/>
+<status status="PASS" start="2025-05-27T17:34:19.681907" elapsed="0.197407"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.018298" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:19.879710" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.018081" elapsed="0.000250"/>
+<status status="PASS" start="2025-05-27T17:34:19.879501" elapsed="0.000243"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.018765" level="INFO">Users found: 12</msg>
+<msg time="2025-05-27T17:34:19.880171" level="INFO">Users found: 12</msg>
 <arg>Users found: ${response.json()["total"]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.018417" elapsed="0.000383"/>
+<status status="PASS" start="2025-05-27T17:34:19.879829" elapsed="0.000377"/>
 </kw>
 <doc>Lista todos os usuários</doc>
-<status status="PASS" start="2025-05-26T18:58:34.946073" elapsed="0.072778"/>
+<status status="PASS" start="2025-05-27T17:34:19.681754" elapsed="0.198501"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.019310" elapsed="0.000486"/>
+<status status="PASS" start="2025-05-27T17:34:19.880641" elapsed="0.000631"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.020113" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:19.881590" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.019872" elapsed="0.000276"/>
+<status status="PASS" start="2025-05-27T17:34:19.881351" elapsed="0.000271"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:35.019045" elapsed="0.001143"/>
+<status status="PASS" start="2025-05-27T17:34:19.880445" elapsed="0.001217"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;data&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;data&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:35.020641" level="INFO">${fields} = ['data']</msg>
+<msg time="2025-05-27T17:34:19.882117" level="INFO">${fields} = ['data']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.020525" elapsed="0.000134"/>
+<status status="PASS" start="2025-05-27T17:34:19.882002" elapsed="0.000133"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.021027" level="INFO">${dict} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
+<msg time="2025-05-27T17:34:19.882498" level="INFO">${dict} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.020734" elapsed="0.000313"/>
+<status status="PASS" start="2025-05-27T17:34:19.882207" elapsed="0.000310"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -847,7 +878,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.021681" elapsed="0.000124"/>
+<status status="PASS" start="2025-05-27T17:34:19.883024" elapsed="0.000126"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -857,42 +888,42 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.021268" elapsed="0.000575"/>
+<status status="PASS" start="2025-05-27T17:34:19.882723" elapsed="0.000464"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.022381" level="INFO">${dict} = [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_na...</msg>
+<msg time="2025-05-27T17:34:19.883711" level="INFO">${dict} = [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-image.jpg'}, {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_na...</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.021923" elapsed="0.000478"/>
+<status status="PASS" start="2025-05-27T17:34:19.883287" elapsed="0.000444"/>
 </kw>
 <var name="${part}">data</var>
-<status status="PASS" start="2025-05-26T18:58:35.021202" elapsed="0.001228"/>
+<status status="PASS" start="2025-05-27T17:34:19.882657" elapsed="0.001100"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:35.021089" elapsed="0.001362"/>
+<status status="PASS" start="2025-05-27T17:34:19.882561" elapsed="0.001217"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:35.020357" elapsed="0.002131"/>
+<status status="PASS" start="2025-05-27T17:34:19.881836" elapsed="0.001980"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;total&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;total&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:35.022939" level="INFO">${fields} = ['total']</msg>
+<msg time="2025-05-27T17:34:19.884251" level="INFO">${fields} = ['total']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.022826" elapsed="0.000130"/>
+<status status="PASS" start="2025-05-27T17:34:19.884141" elapsed="0.000127"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.023330" level="INFO">${dict} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
+<msg time="2025-05-27T17:34:19.884663" level="INFO">${dict} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'email': 'george.bluth@reqres.in', 'first_name': 'George', 'last_name': 'Bluth', 'avatar': 'https://reqres.in/img/faces/1-i...</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.023027" elapsed="0.000326"/>
+<status status="PASS" start="2025-05-27T17:34:19.884373" elapsed="0.000309"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -901,7 +932,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.023775" elapsed="0.000112"/>
+<status status="PASS" start="2025-05-27T17:34:19.885193" elapsed="0.000115"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -911,102 +942,103 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.023532" elapsed="0.000392"/>
+<status status="PASS" start="2025-05-27T17:34:19.884945" elapsed="0.000400"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.024422" level="INFO">${dict} = 12</msg>
+<msg time="2025-05-27T17:34:19.885843" level="INFO">${dict} = 12</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.024002" elapsed="0.000438"/>
+<status status="PASS" start="2025-05-27T17:34:19.885426" elapsed="0.000436"/>
 </kw>
 <var name="${part}">total</var>
-<status status="PASS" start="2025-05-26T18:58:35.023472" elapsed="0.000996"/>
+<status status="PASS" start="2025-05-27T17:34:19.884878" elapsed="0.001012"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:35.023390" elapsed="0.001097"/>
+<status status="PASS" start="2025-05-27T17:34:19.884781" elapsed="0.001129"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:35.022660" elapsed="0.001862"/>
+<status status="PASS" start="2025-05-27T17:34:19.883978" elapsed="0.001969"/>
 </kw>
 <tag>api</tag>
 <tag>GET</tag>
 <tag>list</tag>
 <tag>reqres</tag>
 <tag>user</tag>
-<status status="PASS" start="2025-05-26T18:58:34.945782" elapsed="0.078858"/>
+<tag>users</tag>
+<status status="PASS" start="2025-05-27T17:34:19.681482" elapsed="0.204591"/>
 </test>
-<test id="s1-t7" name="Cenário 07: GET Listar um usuário específico" line="48">
-<kw name="GET Endpoint /users/id" owner="api_testing_user">
+<test id="s1-s2-t2" name="Cenário 07: GET Listar um usuário específico" line="16">
+<kw name="GET Endpoint /users/id" owner="users_keywords">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:35.093053" level="INFO">GET Request : url=https://reqres.in/api/users/2 
+<msg time="2025-05-27T17:34:19.958538" level="INFO">GET Request : url=https://reqres.in/api/users/2 
  path_url=/api/users/2 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:35.093165" level="INFO">GET Response : url=https://reqres.in/api/users/2 
+<msg time="2025-05-27T17:34:19.958644" level="INFO">GET Response : url=https://reqres.in/api/users/2 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '946088e7da52cb5c-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748280594&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=2qj4uVkSIzoVz1Xy88GlNjMGXNPvXjnMWNbbZ0pkGiY%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748280594&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=2qj4uVkSIzoVz1Xy88GlNjMGXNPvXjnMWNbbZ0pkGiY%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '95', 'Ratelimit-Reset': '13', 'Etag': 'W/"152-ApQgGHL6RKwaebFlrPCYPBO1xHg"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'Cf-Cache-Status': 'HIT', 'Age': '5372', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=61632&amp;min_rtt=57148&amp;rtt_var=8387&amp;sent=21&amp;recv=22&amp;lost=0&amp;retrans=0&amp;sent_bytes=11367&amp;recv_bytes=2664&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=2408&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:20 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '94684adc6f6bcabf-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748366850&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=pYrtfelFthOgh4isl83b9FYkonsW0DXLWyhmgtorGv8%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748366850&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=pYrtfelFthOgh4isl83b9FYkonsW0DXLWyhmgtorGv8%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Etag': 'W/"152-ApQgGHL6RKwaebFlrPCYPBO1xHg"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'Cf-Cache-Status': 'HIT', 'Age': '3686', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=57699&amp;min_rtt=57047&amp;rtt_var=12638&amp;sent=9&amp;recv=9&amp;lost=0&amp;retrans=0&amp;sent_bytes=5053&amp;recv_bytes=1085&amp;delivery_rate=98354&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=a158f573c48c52e3&amp;ts=161&amp;x=0"'} 
  body={"data":{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
  </msg>
-<msg time="2025-05-26T18:58:35.093296" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:19.958711" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:35.093430" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:19.958871" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/users/${id}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.025322" elapsed="0.068131"/>
+<status status="PASS" start="2025-05-27T17:34:19.886800" elapsed="0.072093"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.093828" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:19.959307" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.093620" elapsed="0.000240"/>
+<status status="PASS" start="2025-05-27T17:34:19.959078" elapsed="0.000263"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.094318" level="INFO">User data: {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</msg>
+<msg time="2025-05-27T17:34:19.959775" level="INFO">User data: {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</msg>
 <arg>User data: ${response.json()["data"]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.093941" elapsed="0.000415"/>
+<status status="PASS" start="2025-05-27T17:34:19.959426" elapsed="0.000384"/>
 </kw>
 <arg>2</arg>
 <doc>Lista um usuário específico pelo ID</doc>
-<status status="PASS" start="2025-05-26T18:58:35.025146" elapsed="0.069264"/>
+<status status="PASS" start="2025-05-27T17:34:19.886593" elapsed="0.073265"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.094789" elapsed="0.000515"/>
+<status status="PASS" start="2025-05-27T17:34:19.960246" elapsed="0.000489"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.095619" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:19.961079" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.095381" elapsed="0.000269"/>
+<status status="PASS" start="2025-05-27T17:34:19.960813" elapsed="0.000301"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:35.094598" elapsed="0.001091"/>
+<status status="PASS" start="2025-05-27T17:34:19.960054" elapsed="0.001102"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;data&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;data&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:35.096139" level="INFO">${fields} = ['data']</msg>
+<msg time="2025-05-27T17:34:19.961662" level="INFO">${fields} = ['data']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.096024" elapsed="0.000133"/>
+<status status="PASS" start="2025-05-27T17:34:19.961540" elapsed="0.000140"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.096530" level="INFO">${dict} = {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?ut...</msg>
+<msg time="2025-05-27T17:34:19.962046" level="INFO">${dict} = {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?ut...</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.096227" elapsed="0.000322"/>
+<status status="PASS" start="2025-05-27T17:34:19.961753" elapsed="0.000312"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1015,7 +1047,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.096946" elapsed="0.000140"/>
+<status status="PASS" start="2025-05-27T17:34:19.962632" elapsed="0.000121"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1025,42 +1057,42 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.096750" elapsed="0.000374"/>
+<status status="PASS" start="2025-05-27T17:34:19.962284" elapsed="0.000507"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.097574" level="INFO">${dict} = {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</msg>
+<msg time="2025-05-27T17:34:19.963389" level="INFO">${dict} = {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.097205" elapsed="0.000388"/>
+<status status="PASS" start="2025-05-27T17:34:19.962957" elapsed="0.000455"/>
 </kw>
 <var name="${part}">data</var>
-<status status="PASS" start="2025-05-26T18:58:35.096685" elapsed="0.000935"/>
+<status status="PASS" start="2025-05-27T17:34:19.962203" elapsed="0.001242"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:35.096592" elapsed="0.001048"/>
+<status status="PASS" start="2025-05-27T17:34:19.962109" elapsed="0.001364"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:35.095858" elapsed="0.001819"/>
+<status status="PASS" start="2025-05-27T17:34:19.961353" elapsed="0.002167"/>
 </kw>
-<kw name="Validar valor do campo &quot;data.id&quot; é &quot;2&quot;" owner="api_testing_user" source_name="Validar valor do campo &quot;${field}&quot; é &quot;${expected_value}&quot;">
+<kw name="Validar valor do campo &quot;data.id&quot; é &quot;2&quot;" owner="common" source_name="Validar valor do campo &quot;${field}&quot; é &quot;${expected_value}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:35.098140" level="INFO">${fields} = ['data', 'id']</msg>
+<msg time="2025-05-27T17:34:19.964041" level="INFO">${fields} = ['data', 'id']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.098030" elapsed="0.000127"/>
+<status status="PASS" start="2025-05-27T17:34:19.963920" elapsed="0.000138"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.098560" level="INFO">${dict} = {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?ut...</msg>
+<msg time="2025-05-27T17:34:19.964414" level="INFO">${dict} = {'data': {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}, 'support': {'url': 'https://contentcaddy.io?ut...</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.098225" elapsed="0.000354"/>
+<status status="PASS" start="2025-05-27T17:34:19.964131" elapsed="0.000302"/>
 </kw>
 <for flavor="IN ENUMERATE">
 <iter>
@@ -1069,7 +1101,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.099244" elapsed="0.000119"/>
+<status status="PASS" start="2025-05-27T17:34:19.964977" elapsed="0.000117"/>
 </kw>
 <arg>${index} &lt; ${fields.__len__() - 1}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1080,20 +1112,20 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.098770" elapsed="0.000630"/>
+<status status="PASS" start="2025-05-27T17:34:19.964623" elapsed="0.000507"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.100064" level="INFO">${dict} = {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</msg>
+<msg time="2025-05-27T17:34:19.965716" level="INFO">${dict} = {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</msg>
 <var>${dict}</var>
 <arg>${index} &lt; ${fields.__len__() - 1}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.099544" elapsed="0.000538"/>
+<status status="PASS" start="2025-05-27T17:34:19.965214" elapsed="0.000521"/>
 </kw>
 <var name="${index}">0</var>
 <var name="${part}">data</var>
-<status status="PASS" start="2025-05-26T18:58:35.098708" elapsed="0.001402"/>
+<status status="PASS" start="2025-05-27T17:34:19.964561" elapsed="0.001202"/>
 </iter>
 <iter>
 <kw name="Run Keyword If" owner="BuiltIn">
@@ -1101,7 +1133,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.100570" elapsed="0.000121"/>
+<status status="PASS" start="2025-05-27T17:34:19.966228" elapsed="0.000108"/>
 </kw>
 <arg>${index} &lt; ${fields.__len__() - 1}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1112,133 +1144,134 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.100240" elapsed="0.000486"/>
+<status status="PASS" start="2025-05-27T17:34:19.965893" elapsed="0.000479"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.101160" level="INFO">${dict} = {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</msg>
+<msg time="2025-05-27T17:34:19.966761" level="INFO">${dict} = {'id': 2, 'email': 'janet.weaver@reqres.in', 'first_name': 'Janet', 'last_name': 'Weaver', 'avatar': 'https://reqres.in/img/faces/2-image.jpg'}</msg>
 <var>${dict}</var>
 <arg>${index} &lt; ${fields.__len__() - 1}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.100828" elapsed="0.000350"/>
+<status status="PASS" start="2025-05-27T17:34:19.966452" elapsed="0.000327"/>
 </kw>
 <var name="${index}">1</var>
 <var name="${part}">id</var>
-<status status="PASS" start="2025-05-26T18:58:35.100180" elapsed="0.001026"/>
+<status status="PASS" start="2025-05-27T17:34:19.965831" elapsed="0.000974"/>
 </iter>
 <var>${index}</var>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:35.098615" elapsed="0.002613"/>
+<status status="PASS" start="2025-05-27T17:34:19.964469" elapsed="0.002357"/>
 </for>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.101578" level="INFO">${last_field} = id</msg>
+<msg time="2025-05-27T17:34:19.967192" level="INFO">${last_field} = id</msg>
 <var>${last_field}</var>
 <arg>${fields[-1]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.101297" elapsed="0.000299"/>
+<status status="PASS" start="2025-05-27T17:34:19.966910" elapsed="0.000299"/>
 </kw>
 <kw name="Convert To String" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.101977" level="INFO">${actual_value} = 2</msg>
+<msg time="2025-05-27T17:34:19.967604" level="INFO">${actual_value} = 2</msg>
 <var>${actual_value}</var>
 <arg>${dict["${last_field}"]}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.101663" elapsed="0.000331"/>
+<status status="PASS" start="2025-05-27T17:34:19.967280" elapsed="0.000341"/>
 </kw>
 <kw name="Should Be Equal" owner="BuiltIn">
 <arg>${actual_value}</arg>
 <arg>${expected_value}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.102063" elapsed="0.000131"/>
+<status status="PASS" start="2025-05-27T17:34:19.967692" elapsed="0.000122"/>
 </kw>
 <doc>Valida que o campo na response tem o valor esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:35.097860" elapsed="0.004378"/>
+<status status="PASS" start="2025-05-27T17:34:19.963738" elapsed="0.004115"/>
 </kw>
 <tag>api</tag>
 <tag>GET</tag>
 <tag>reqres</tag>
 <tag>single</tag>
 <tag>user</tag>
-<status status="PASS" start="2025-05-26T18:58:35.024840" elapsed="0.077542"/>
+<tag>users</tag>
+<status status="PASS" start="2025-05-27T17:34:19.886279" elapsed="0.081704"/>
 </test>
-<test id="s1-t8" name="Cenário 08: PUT Atualizar um usuário" line="55">
-<kw name="PUT Endpoint /users/id" owner="api_testing_user">
+<test id="s1-s2-t3" name="Cenário 08: PUT Atualizar um usuário" line="23">
+<kw name="PUT Endpoint /users/id" owner="users_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.103217" level="INFO">${payload} = {'name': 'ze', 'job': 'pedreiro'}</msg>
+<msg time="2025-05-27T17:34:19.968915" level="INFO">${payload} = {'name': 'ze', 'job': 'pedreiro'}</msg>
 <var>${payload}</var>
 <arg>name=ze</arg>
 <arg>job=pedreiro</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.103089" elapsed="0.000150"/>
+<status status="PASS" start="2025-05-27T17:34:19.968749" elapsed="0.000188"/>
 </kw>
 <kw name="PUT On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:35.572276" level="INFO">PUT Request : url=https://reqres.in/api/users/3 
+<msg time="2025-05-27T17:34:20.437628" level="INFO">PUT Request : url=https://reqres.in/api/users/3 
  path_url=/api/users/3 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '33'} 
  body=b'{"name": "ze", "job": "pedreiro"}' 
  </msg>
-<msg time="2025-05-26T18:58:35.572406" level="INFO">PUT Response : url=https://reqres.in/api/users/3 
+<msg time="2025-05-27T17:34:20.437724" level="INFO">PUT Response : url=https://reqres.in/api/users/3 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:35 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '946088e86ae0cb5c-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296715&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=k15AhKCtmeykGwl5Ik3OQ9FiQsRcGEg14WpEEJ%2Fctk0%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296715&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=k15AhKCtmeykGwl5Ik3OQ9FiQsRcGEg14WpEEJ%2Fctk0%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '88', 'Ratelimit-Reset': '58', 'Etag': 'W/"45-P47V4SSCKRCNDYbDV15FY1TkaJI"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=61125&amp;min_rtt=57148&amp;rtt_var=7305&amp;sent=24&amp;recv=25&amp;lost=0&amp;retrans=0&amp;sent_bytes=12937&amp;recv_bytes=2984&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=2896&amp;x=0"'} 
- body={"name":"ze","job":"pedreiro","updatedAt":"2025-05-26T21:58:35.897Z"} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:20 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '94684adcefaecabf-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378060&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=dbUt1O%2BAI4kk1nYp%2B7w05Ud0DubOeiFKCc5nuGXPibU%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378060&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=dbUt1O%2BAI4kk1nYp%2B7w05Ud0DubOeiFKCc5nuGXPibU%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '88', 'Ratelimit-Reset': '58', 'Etag': 'W/"45-WnxUOSMEIglpEGb4+TLbKVWdKNI"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=57698&amp;min_rtt=57047&amp;rtt_var=9482&amp;sent=13&amp;recv=12&amp;lost=0&amp;retrans=0&amp;sent_bytes=6620&amp;recv_bytes=1405&amp;delivery_rate=98354&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=a158f573c48c52e3&amp;ts=645&amp;x=0"'} 
+ body={"name":"ze","job":"pedreiro","updatedAt":"2025-05-27T20:34:20.624Z"} 
  </msg>
-<msg time="2025-05-26T18:58:35.572467" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:20.437855" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:35.572608" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:20.437991" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/users/${id}</arg>
 <arg>json=${payload}</arg>
 <doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.103318" elapsed="0.469313"/>
+<status status="PASS" start="2025-05-27T17:34:19.969017" elapsed="0.468998"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.573030" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:20.438410" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.572802" elapsed="0.000263"/>
+<status status="PASS" start="2025-05-27T17:34:20.438194" elapsed="0.000250"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.573492" level="INFO">Updated at: 2025-05-26T21:58:35.897Z</msg>
+<msg time="2025-05-27T17:34:20.438867" level="INFO">Updated at: 2025-05-27T20:34:20.624Z</msg>
 <arg>Updated at: ${response.json()["updatedAt"]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.573152" elapsed="0.000376"/>
+<status status="PASS" start="2025-05-27T17:34:20.438529" elapsed="0.000373"/>
 </kw>
 <arg>3</arg>
 <doc>Atualiza um usuário com o método PUT</doc>
-<status status="PASS" start="2025-05-26T18:58:35.102887" elapsed="0.470695"/>
+<status status="PASS" start="2025-05-27T17:34:19.968541" elapsed="0.470429"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.573981" elapsed="0.000513"/>
+<status status="PASS" start="2025-05-27T17:34:20.439353" elapsed="0.000481"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.574806" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:20.440147" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.574569" elapsed="0.000339"/>
+<status status="PASS" start="2025-05-27T17:34:20.439909" elapsed="0.000268"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:35.573783" elapsed="0.001171"/>
+<status status="PASS" start="2025-05-27T17:34:20.439162" elapsed="0.001052"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;updatedAt&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;updatedAt&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:35.575454" level="INFO">${fields} = ['updatedAt']</msg>
+<msg time="2025-05-27T17:34:20.440662" level="INFO">${fields} = ['updatedAt']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.575331" elapsed="0.000141"/>
+<status status="PASS" start="2025-05-27T17:34:20.440548" elapsed="0.000131"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.575847" level="INFO">${dict} = {'name': 'ze', 'job': 'pedreiro', 'updatedAt': '2025-05-26T21:58:35.897Z'}</msg>
+<msg time="2025-05-27T17:34:20.441049" level="INFO">${dict} = {'name': 'ze', 'job': 'pedreiro', 'updatedAt': '2025-05-27T20:34:20.624Z'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.575547" elapsed="0.000318"/>
+<status status="PASS" start="2025-05-27T17:34:20.440753" elapsed="0.000314"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1247,7 +1280,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.576272" elapsed="0.000116"/>
+<status status="PASS" start="2025-05-27T17:34:20.441442" elapsed="0.000233"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1257,42 +1290,42 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.576087" elapsed="0.000336"/>
+<status status="PASS" start="2025-05-27T17:34:20.441268" elapsed="0.000443"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.576838" level="INFO">${dict} = 2025-05-26T21:58:35.897Z</msg>
+<msg time="2025-05-27T17:34:20.442140" level="INFO">${dict} = 2025-05-27T20:34:20.624Z</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.576500" elapsed="0.000365"/>
+<status status="PASS" start="2025-05-27T17:34:20.441791" elapsed="0.000367"/>
 </kw>
 <var name="${part}">updatedAt</var>
-<status status="PASS" start="2025-05-26T18:58:35.576005" elapsed="0.000891"/>
+<status status="PASS" start="2025-05-27T17:34:20.441203" elapsed="0.000982"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:35.575908" elapsed="0.001009"/>
+<status status="PASS" start="2025-05-27T17:34:20.441111" elapsed="0.001094"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:35.575145" elapsed="0.001811"/>
+<status status="PASS" start="2025-05-27T17:34:20.440384" elapsed="0.001874"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;name&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;name&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:35.577393" level="INFO">${fields} = ['name']</msg>
+<msg time="2025-05-27T17:34:20.442696" level="INFO">${fields} = ['name']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.577285" elapsed="0.000125"/>
+<status status="PASS" start="2025-05-27T17:34:20.442585" elapsed="0.000128"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.577799" level="INFO">${dict} = {'name': 'ze', 'job': 'pedreiro', 'updatedAt': '2025-05-26T21:58:35.897Z'}</msg>
+<msg time="2025-05-27T17:34:20.443077" level="INFO">${dict} = {'name': 'ze', 'job': 'pedreiro', 'updatedAt': '2025-05-27T20:34:20.624Z'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.577512" elapsed="0.000305"/>
+<status status="PASS" start="2025-05-27T17:34:20.442783" elapsed="0.000312"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1301,7 +1334,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.578181" elapsed="0.000110"/>
+<status status="PASS" start="2025-05-27T17:34:20.443494" elapsed="0.000113"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1311,111 +1344,112 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.577992" elapsed="0.000334"/>
+<status status="PASS" start="2025-05-27T17:34:20.443318" elapsed="0.000325"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.578830" level="INFO">${dict} = ze</msg>
+<msg time="2025-05-27T17:34:20.444064" level="INFO">${dict} = ze</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.578400" elapsed="0.000453"/>
+<status status="PASS" start="2025-05-27T17:34:20.443724" elapsed="0.000358"/>
 </kw>
 <var name="${part}">name</var>
-<status status="PASS" start="2025-05-26T18:58:35.577932" elapsed="0.000953"/>
+<status status="PASS" start="2025-05-27T17:34:20.443225" elapsed="0.000883"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:35.577852" elapsed="0.001053"/>
+<status status="PASS" start="2025-05-27T17:34:20.443129" elapsed="0.000997"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:35.577122" elapsed="0.001819"/>
+<status status="PASS" start="2025-05-27T17:34:20.442420" elapsed="0.001795"/>
 </kw>
 <tag>api</tag>
 <tag>PUT</tag>
 <tag>reqres</tag>
 <tag>update</tag>
 <tag>user</tag>
-<status status="PASS" start="2025-05-26T18:58:35.102592" elapsed="0.476483"/>
+<tag>users</tag>
+<status status="PASS" start="2025-05-27T17:34:19.968231" elapsed="0.476101"/>
 </test>
-<test id="s1-t9" name="Cenário 09: PATCH Atualizar parcialmente um usuário" line="62">
-<kw name="PATCH Endpoint /users/id" owner="api_testing_user">
+<test id="s1-s2-t4" name="Cenário 09: PATCH Atualizar parcialmente um usuário" line="30">
+<kw name="PATCH Endpoint /users/id" owner="users_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-05-26T18:58:35.580074" level="INFO">${payload} = {'name': 'joao', 'job': 'jogador'}</msg>
+<msg time="2025-05-27T17:34:20.445172" level="INFO">${payload} = {'name': 'joao', 'job': 'jogador'}</msg>
 <var>${payload}</var>
 <arg>name=joao</arg>
 <arg>job=jogador</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.579795" elapsed="0.000298"/>
+<status status="PASS" start="2025-05-27T17:34:20.445045" elapsed="0.000145"/>
 </kw>
 <kw name="PATCH On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:36.021836" level="INFO">PATCH Request : url=https://reqres.in/api/users/5 
+<msg time="2025-05-27T17:34:20.877290" level="INFO">PATCH Request : url=https://reqres.in/api/users/5 
  path_url=/api/users/5 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '34'} 
  body=b'{"name": "joao", "job": "jogador"}' 
  </msg>
-<msg time="2025-05-26T18:58:36.021942" level="INFO">PATCH Response : url=https://reqres.in/api/users/5 
+<msg time="2025-05-27T17:34:20.877390" level="INFO">PATCH Response : url=https://reqres.in/api/users/5 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '946088eb7d1bcb5c-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296716&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=3jPWKdvOKjt3Beu9qMU%2FFT8yAJYjUQ%2Bze%2FYzP3zRM94%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296716&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=3jPWKdvOKjt3Beu9qMU%2FFT8yAJYjUQ%2Bze%2FYzP3zRM94%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '86', 'Ratelimit-Reset': '58', 'Etag': 'W/"46-om07jFJTPft7PdMLdGYVNaeHrDk"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=60821&amp;min_rtt=57148&amp;rtt_var=6085&amp;sent=27&amp;recv=28&amp;lost=0&amp;retrans=0&amp;sent_bytes=14298&amp;recv_bytes=3307&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=3354&amp;x=0"'} 
- body={"name":"joao","job":"jogador","updatedAt":"2025-05-26T21:58:36.355Z"} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:21 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '94684adfe974cabf-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378061&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=vQbmEET0G9ceR%2FKTa4JtZixWXgZ0muy205%2B%2FKdDSO%2FA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378061&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=vQbmEET0G9ceR%2FKTa4JtZixWXgZ0muy205%2B%2FKdDSO%2FA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '86', 'Ratelimit-Reset': '57', 'Etag': 'W/"46-QtRiQwmnpcXYgVR+rjaVCfGV0us"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=57757&amp;min_rtt=57047&amp;rtt_var=7230&amp;sent=16&amp;recv=15&amp;lost=0&amp;retrans=0&amp;sent_bytes=7983&amp;recv_bytes=1728&amp;delivery_rate=98354&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=a158f573c48c52e3&amp;ts=1088&amp;x=0"'} 
+ body={"name":"joao","job":"jogador","updatedAt":"2025-05-27T20:34:21.070Z"} 
  </msg>
-<msg time="2025-05-26T18:58:36.022012" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:20.877455" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:36.022148" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:20.877590" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/users/${id}</arg>
 <arg>json=${payload}</arg>
 <doc>Sends a PATCH request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:35.580169" elapsed="0.442060"/>
+<status status="PASS" start="2025-05-27T17:34:20.445262" elapsed="0.432350"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.022681" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:20.878008" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.022456" elapsed="0.000260"/>
+<status status="PASS" start="2025-05-27T17:34:20.877792" elapsed="0.000248"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.023186" level="INFO">Updated at: 2025-05-26T21:58:36.355Z</msg>
+<msg time="2025-05-27T17:34:20.878473" level="INFO">Updated at: 2025-05-27T20:34:21.070Z</msg>
 <arg>Updated at: ${response.json()["updatedAt"]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.022797" elapsed="0.000427"/>
+<status status="PASS" start="2025-05-27T17:34:20.878132" elapsed="0.000376"/>
 </kw>
 <arg>5</arg>
 <doc>Atualiza um usuário com o método PATCH</doc>
-<status status="PASS" start="2025-05-26T18:58:35.579612" elapsed="0.443665"/>
+<status status="PASS" start="2025-05-27T17:34:20.444843" elapsed="0.433714"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.023676" elapsed="0.000488"/>
+<status status="PASS" start="2025-05-27T17:34:20.878943" elapsed="0.000517"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.024494" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:20.879784" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.024240" elapsed="0.000287"/>
+<status status="PASS" start="2025-05-27T17:34:20.879537" elapsed="0.000279"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:36.023476" elapsed="0.001091"/>
+<status status="PASS" start="2025-05-27T17:34:20.878750" elapsed="0.001104"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;updatedAt&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;updatedAt&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:36.025047" level="INFO">${fields} = ['updatedAt']</msg>
+<msg time="2025-05-27T17:34:20.880306" level="INFO">${fields} = ['updatedAt']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.024917" elapsed="0.000151"/>
+<status status="PASS" start="2025-05-27T17:34:20.880192" elapsed="0.000131"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.025424" level="INFO">${dict} = {'name': 'joao', 'job': 'jogador', 'updatedAt': '2025-05-26T21:58:36.355Z'}</msg>
+<msg time="2025-05-27T17:34:20.880699" level="INFO">${dict} = {'name': 'joao', 'job': 'jogador', 'updatedAt': '2025-05-27T20:34:21.070Z'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.025142" elapsed="0.000300"/>
+<status status="PASS" start="2025-05-27T17:34:20.880394" elapsed="0.000325"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1424,7 +1458,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.025819" elapsed="0.000118"/>
+<status status="PASS" start="2025-05-27T17:34:20.881095" elapsed="0.000134"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1434,155 +1468,182 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.025642" elapsed="0.000330"/>
+<status status="PASS" start="2025-05-27T17:34:20.880920" elapsed="0.000347"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.026386" level="INFO">${dict} = 2025-05-26T21:58:36.355Z</msg>
+<msg time="2025-05-27T17:34:20.881689" level="INFO">${dict} = 2025-05-27T20:34:21.070Z</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.026048" elapsed="0.000356"/>
+<status status="PASS" start="2025-05-27T17:34:20.881346" elapsed="0.000361"/>
 </kw>
 <var name="${part}">updatedAt</var>
-<status status="PASS" start="2025-05-26T18:58:36.025578" elapsed="0.000853"/>
+<status status="PASS" start="2025-05-27T17:34:20.880854" elapsed="0.000884"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:36.025484" elapsed="0.000967"/>
+<status status="PASS" start="2025-05-27T17:34:20.880762" elapsed="0.000998"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:36.024744" elapsed="0.001744"/>
+<status status="PASS" start="2025-05-27T17:34:20.880027" elapsed="0.001768"/>
 </kw>
 <tag>api</tag>
 <tag>PATCH</tag>
 <tag>reqres</tag>
 <tag>update</tag>
 <tag>user</tag>
-<status status="PASS" start="2025-05-26T18:58:35.579320" elapsed="0.447288"/>
+<tag>users</tag>
+<status status="PASS" start="2025-05-27T17:34:20.444534" elapsed="0.437381"/>
 </test>
-<test id="s1-t10" name="Cenário 10: DELETE Excluir um usuário" line="68">
-<kw name="DELETE Endpoint /users/id" owner="api_testing_user">
+<test id="s1-s2-t5" name="Cenário 10: DELETE Excluir um usuário" line="36">
+<kw name="DELETE Endpoint /users/id" owner="users_keywords">
 <kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:36.455411" level="INFO">DELETE Request : url=https://reqres.in/api/users/5 
+<msg time="2025-05-27T17:34:21.313892" level="INFO">DELETE Request : url=https://reqres.in/api/users/5 
  path_url=/api/users/5 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:36.455507" level="INFO">DELETE Response : url=https://reqres.in/api/users/5 
+<msg time="2025-05-27T17:34:21.314065" level="INFO">DELETE Response : url=https://reqres.in/api/users/5 
  status=204, reason=No Content 
- headers={'Date': 'Mon, 26 May 2025 21:58:36 GMT', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '946088ee3fb4cb5c-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296716&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=3jPWKdvOKjt3Beu9qMU%2FFT8yAJYjUQ%2Bze%2FYzP3zRM94%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296716&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=3jPWKdvOKjt3Beu9qMU%2FFT8yAJYjUQ%2Bze%2FYzP3zRM94%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '84', 'Ratelimit-Reset': '57', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=60420&amp;min_rtt=57148&amp;rtt_var=5366&amp;sent=30&amp;recv=30&amp;lost=0&amp;retrans=0&amp;sent_bytes=15642&amp;recv_bytes=3574&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=3796&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:21 GMT', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '94684ae2ab3acabf-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378061&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=vQbmEET0G9ceR%2FKTa4JtZixWXgZ0muy205%2B%2FKdDSO%2FA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378061&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=vQbmEET0G9ceR%2FKTa4JtZixWXgZ0muy205%2B%2FKdDSO%2FA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '84', 'Ratelimit-Reset': '57', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=57854&amp;min_rtt=57047&amp;rtt_var=5617&amp;sent=19&amp;recv=17&amp;lost=0&amp;retrans=0&amp;sent_bytes=9330&amp;recv_bytes=1995&amp;delivery_rate=98354&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=a158f573c48c52e3&amp;ts=1529&amp;x=0"'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:36.455607" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:21.314141" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:36.455770" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<msg time="2025-05-27T17:34:21.314295" level="INFO">${response} = &lt;Response [204]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/users/${id}</arg>
 <doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.027259" elapsed="0.428539"/>
+<status status="PASS" start="2025-05-27T17:34:20.882544" elapsed="0.431777"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.456208" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<msg time="2025-05-27T17:34:21.314727" level="INFO">${response} = &lt;Response [204]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.455995" elapsed="0.000245"/>
+<status status="PASS" start="2025-05-27T17:34:21.314498" elapsed="0.000264"/>
 </kw>
 <arg>5</arg>
 <doc>Exclui um usuário</doc>
-<status status="PASS" start="2025-05-26T18:58:36.027086" elapsed="0.429209"/>
+<status status="PASS" start="2025-05-27T17:34:20.882375" elapsed="0.432438"/>
 </kw>
-<kw name="Validar status code &quot;204&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;204&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.456697" elapsed="0.000542"/>
+<status status="PASS" start="2025-05-27T17:34:21.315214" elapsed="0.000585"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.457585" level="INFO">Response status: 204</msg>
+<msg time="2025-05-27T17:34:21.316132" level="INFO">Response status: 204</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.457335" elapsed="0.000283"/>
+<status status="PASS" start="2025-05-27T17:34:21.315884" elapsed="0.000280"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:36.456489" elapsed="0.001169"/>
+<status status="PASS" start="2025-05-27T17:34:21.315009" elapsed="0.001193"/>
 </kw>
 <tag>api</tag>
 <tag>DELETE</tag>
 <tag>reqres</tag>
 <tag>user</tag>
-<status status="PASS" start="2025-05-26T18:58:36.026799" elapsed="0.431051"/>
+<tag>users</tag>
+<status status="PASS" start="2025-05-27T17:34:20.882107" elapsed="0.434218"/>
 </test>
-<test id="s1-t11" name="Cenário 11: GET Listar um recurso específico" line="73">
-<kw name="GET Endpoint /resource/id" owner="api_testing_user">
+<doc>Testes para endpoints de usuários</doc>
+<status status="PASS" start="2025-05-27T17:34:19.677413" elapsed="1.639186"/>
+</suite>
+<suite id="s1-s3" name="Resources Tests" source="/home/luisms/compass_pb/Documentos/Sprint 5/reqresAPI/tests/resources/resources_tests.robot">
+<kw name="Criar sessão no ReqRes" owner="common" type="SETUP">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-05-27T17:34:21.320195" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'}</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<arg>x-api-key=reqres-free-v1</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-05-27T17:34:21.320058" elapsed="0.000157"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-05-27T17:34:21.320426" level="INFO">Creating Session using : alias=ReqRes, url=https://reqres.in/api, headers={'accept': 'application/json', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>ReqRes</arg>
+<arg>${BASE_URL}</arg>
+<arg>${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-05-27T17:34:21.320291" elapsed="0.000254"/>
+</kw>
+<doc>Cria uma sessão na API ReqRes com os headers apropriados</doc>
+<status status="PASS" start="2025-05-27T17:34:21.319917" elapsed="0.000670"/>
+</kw>
+<test id="s1-s3-t1" name="Cenário 11: GET Listar um recurso específico" line="9">
+<kw name="GET Endpoint /resource/id" owner="resources_keywords">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:36.528215" level="INFO">GET Request : url=https://reqres.in/api/unknown/2 
+<msg time="2025-05-27T17:34:21.516878" level="INFO">GET Request : url=https://reqres.in/api/unknown/2 
  path_url=/api/unknown/2 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:36.528311" level="INFO">GET Response : url=https://reqres.in/api/unknown/2 
+<msg time="2025-05-27T17:34:21.516986" level="INFO">GET Response : url=https://reqres.in/api/unknown/2 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:36 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '946088f0fa13cb5c-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748265338&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XgWpTjEFjJVuPR9MkmH3qfLRy6eFxClx4rbin9qsqqw%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748265338&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XgWpTjEFjJVuPR9MkmH3qfLRy6eFxClx4rbin9qsqqw%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '93', 'Ratelimit-Reset': '36', 'Etag': 'W/"122-EJoELj/0trWDxXZhKN3eWEbbcBA"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'Cf-Cache-Status': 'HIT', 'Age': '5360', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=60621&amp;min_rtt=57148&amp;rtt_var=4426&amp;sent=32&amp;recv=31&amp;lost=0&amp;retrans=0&amp;sent_bytes=16768&amp;recv_bytes=3821&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=3869&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:21 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '94684ae63e78cad8-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748265338&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XgWpTjEFjJVuPR9MkmH3qfLRy6eFxClx4rbin9qsqqw%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748265338&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=XgWpTjEFjJVuPR9MkmH3qfLRy6eFxClx4rbin9qsqqw%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '93', 'Ratelimit-Reset': '36', 'Etag': 'W/"122-EJoELj/0trWDxXZhKN3eWEbbcBA"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'Cf-Cache-Status': 'HIT', 'Age': '1042', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=58382&amp;min_rtt=57515&amp;rtt_var=13039&amp;sent=5&amp;recv=8&amp;lost=0&amp;retrans=0&amp;sent_bytes=2837&amp;recv_bytes=844&amp;delivery_rate=73423&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=c7dddd7c5e6fa4b9&amp;ts=79&amp;x=0"'} 
  body={"data":{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
  </msg>
-<msg time="2025-05-26T18:58:36.528369" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:21.517052" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:36.528501" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:21.517207" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/unknown/${id}</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.458544" elapsed="0.069979"/>
+<status status="PASS" start="2025-05-27T17:34:21.321074" elapsed="0.196225"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.528925" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:21.517739" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.528699" elapsed="0.000260"/>
+<status status="PASS" start="2025-05-27T17:34:21.517518" elapsed="0.000255"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.529382" level="INFO">Resource data: {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}</msg>
+<msg time="2025-05-27T17:34:21.518204" level="INFO">Resource data: {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}</msg>
 <arg>Resource data: ${response.json()["data"]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.529046" elapsed="0.000372"/>
+<status status="PASS" start="2025-05-27T17:34:21.517858" elapsed="0.000380"/>
 </kw>
 <arg>2</arg>
 <doc>Busca um recurso específico pelo ID</doc>
-<status status="PASS" start="2025-05-26T18:58:36.458356" elapsed="0.071112"/>
+<status status="PASS" start="2025-05-27T17:34:21.320901" elapsed="0.197385"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.529846" elapsed="0.000478"/>
+<status status="PASS" start="2025-05-27T17:34:21.518678" elapsed="0.000476"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.530634" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:21.519469" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.530398" elapsed="0.000283"/>
+<status status="PASS" start="2025-05-27T17:34:21.519231" elapsed="0.000270"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:36.529656" elapsed="0.001069"/>
+<status status="PASS" start="2025-05-27T17:34:21.518472" elapsed="0.001067"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;data&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;data&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:36.531174" level="INFO">${fields} = ['data']</msg>
+<msg time="2025-05-27T17:34:21.520008" level="INFO">${fields} = ['data']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.531060" elapsed="0.000132"/>
+<status status="PASS" start="2025-05-27T17:34:21.519892" elapsed="0.000134"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.531536" level="INFO">${dict} = {'data': {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, 'support': {'url': 'https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=ref...</msg>
+<msg time="2025-05-27T17:34:21.520379" level="INFO">${dict} = {'data': {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, 'support': {'url': 'https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=ref...</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.531262" elapsed="0.000293"/>
+<status status="PASS" start="2025-05-27T17:34:21.520097" elapsed="0.000300"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1591,7 +1652,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.531946" elapsed="0.000115"/>
+<status status="PASS" start="2025-05-27T17:34:21.520837" elapsed="0.000122"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1601,42 +1662,42 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.531755" elapsed="0.000340"/>
+<status status="PASS" start="2025-05-27T17:34:21.520622" elapsed="0.000373"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.532555" level="INFO">${dict} = {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}</msg>
+<msg time="2025-05-27T17:34:21.521432" level="INFO">${dict} = {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.532177" elapsed="0.000398"/>
+<status status="PASS" start="2025-05-27T17:34:21.521074" elapsed="0.000380"/>
 </kw>
 <var name="${part}">data</var>
-<status status="PASS" start="2025-05-26T18:58:36.531688" elapsed="0.000915"/>
+<status status="PASS" start="2025-05-27T17:34:21.520534" elapsed="0.000947"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:36.531595" elapsed="0.001029"/>
+<status status="PASS" start="2025-05-27T17:34:21.520440" elapsed="0.001062"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:36.530895" elapsed="0.001786"/>
+<status status="PASS" start="2025-05-27T17:34:21.519723" elapsed="0.001819"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;data.name&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;data.name&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:36.533136" level="INFO">${fields} = ['data', 'name']</msg>
+<msg time="2025-05-27T17:34:21.522037" level="INFO">${fields} = ['data', 'name']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.533025" elapsed="0.000129"/>
+<status status="PASS" start="2025-05-27T17:34:21.521925" elapsed="0.000128"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.533501" level="INFO">${dict} = {'data': {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, 'support': {'url': 'https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=ref...</msg>
+<msg time="2025-05-27T17:34:21.522423" level="INFO">${dict} = {'data': {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, 'support': {'url': 'https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=ref...</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.533222" elapsed="0.000353"/>
+<status status="PASS" start="2025-05-27T17:34:21.522123" elapsed="0.000321"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1645,7 +1706,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.533950" elapsed="0.000108"/>
+<status status="PASS" start="2025-05-27T17:34:21.522833" elapsed="0.000114"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1655,19 +1716,19 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.533766" elapsed="0.000327"/>
+<status status="PASS" start="2025-05-27T17:34:21.522648" elapsed="0.000334"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.534535" level="INFO">${dict} = {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}</msg>
+<msg time="2025-05-27T17:34:21.523429" level="INFO">${dict} = {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.534169" elapsed="0.000384"/>
+<status status="PASS" start="2025-05-27T17:34:21.523058" elapsed="0.000389"/>
 </kw>
 <var name="${part}">data</var>
-<status status="PASS" start="2025-05-26T18:58:36.533704" elapsed="0.000877"/>
+<status status="PASS" start="2025-05-27T17:34:21.522578" elapsed="0.000896"/>
 </iter>
 <iter>
 <kw name="Run Keyword If" owner="BuiltIn">
@@ -1675,7 +1736,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.534911" elapsed="0.000107"/>
+<status status="PASS" start="2025-05-27T17:34:21.523767" elapsed="0.000121"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1685,112 +1746,113 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.534742" elapsed="0.000311"/>
+<status status="PASS" start="2025-05-27T17:34:21.523590" elapsed="0.000337"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.535464" level="INFO">${dict} = fuchsia rose</msg>
+<msg time="2025-05-27T17:34:21.524412" level="INFO">${dict} = fuchsia rose</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.535127" elapsed="0.000355"/>
+<status status="PASS" start="2025-05-27T17:34:21.524016" elapsed="0.000414"/>
 </kw>
 <var name="${part}">name</var>
-<status status="PASS" start="2025-05-26T18:58:36.534675" elapsed="0.000833"/>
+<status status="PASS" start="2025-05-27T17:34:21.523529" elapsed="0.000930"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:36.533618" elapsed="0.001908"/>
+<status status="PASS" start="2025-05-27T17:34:21.522480" elapsed="0.002001"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:36.532862" elapsed="0.002699"/>
+<status status="PASS" start="2025-05-27T17:34:21.521755" elapsed="0.002765"/>
 </kw>
 <tag>api</tag>
 <tag>GET</tag>
 <tag>reqres</tag>
 <tag>resource</tag>
+<tag>resources</tag>
 <tag>single</tag>
-<status status="PASS" start="2025-05-26T18:58:36.458065" elapsed="0.077614"/>
+<status status="PASS" start="2025-05-27T17:34:21.320629" elapsed="0.204084"/>
 </test>
-<test id="s1-t12" name="Cenário 12: PUT Atualizar um recurso" line="80">
-<kw name="PUT Endpoint /resource/id" owner="api_testing_user">
+<test id="s1-s3-t2" name="Cenário 12: PUT Atualizar um recurso" line="16">
+<kw name="PUT Endpoint /resource/id" owner="resources_keywords">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.536450" level="INFO">${payload} = {'name': 'azul', 'year': '2000', 'color': '#C48394'}</msg>
+<msg time="2025-05-27T17:34:21.525525" level="INFO">${payload} = {'name': 'azul', 'year': '2000', 'color': '#C48394'}</msg>
 <var>${payload}</var>
 <arg>name=azul</arg>
 <arg>year=2000</arg>
 <arg>color=#C48394</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.536323" elapsed="0.000145"/>
+<status status="PASS" start="2025-05-27T17:34:21.525396" elapsed="0.000147"/>
 </kw>
 <kw name="PUT On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:36.967500" level="INFO">PUT Request : url=https://reqres.in/api/unknown/2 
+<msg time="2025-05-27T17:34:21.993663" level="INFO">PUT Request : url=https://reqres.in/api/unknown/2 
  path_url=/api/unknown/2 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '52'} 
  body=b'{"name": "azul", "year": "2000", "color": "#C48394"}' 
  </msg>
-<msg time="2025-05-26T18:58:36.967593" level="INFO">PUT Response : url=https://reqres.in/api/unknown/2 
+<msg time="2025-05-27T17:34:21.993759" level="INFO">PUT Response : url=https://reqres.in/api/unknown/2 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:37 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '946088f17a76cb5c-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296717&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ibZ8fvgwqw5UasaQ9MuG%2FLPCJdZjzpIxOX%2FPuY8E480%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296717&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ibZ8fvgwqw5UasaQ9MuG%2FLPCJdZjzpIxOX%2FPuY8E480%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '82', 'Ratelimit-Reset': '57', 'Etag': 'W/"56-8bQibi26FNmahFZUI/J/Uh8LlfM"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=60192&amp;min_rtt=57128&amp;rtt_var=4177&amp;sent=35&amp;recv=34&amp;lost=0&amp;retrans=0&amp;sent_bytes=18325&amp;recv_bytes=4162&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=4317&amp;x=0"'} 
- body={"name":"azul","year":"2000","color":"#C48394","updatedAt":"2025-05-26T21:58:37.320Z"} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:22 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '94684ae6cefecad8-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378062&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=nNH8uE3cAw7jiHKTzuAO1QiMrBMaamf0kRRABMwBD4s%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378062&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=nNH8uE3cAw7jiHKTzuAO1QiMrBMaamf0kRRABMwBD4s%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '82', 'Ratelimit-Reset': '56', 'Etag': 'W/"56-hy6a3EI3c7CrHE3qNExvdR6Cx9k"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=58212&amp;min_rtt=56951&amp;rtt_var=10119&amp;sent=10&amp;recv=11&amp;lost=0&amp;retrans=0&amp;sent_bytes=4871&amp;recv_bytes=1185&amp;delivery_rate=98767&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=c7dddd7c5e6fa4b9&amp;ts=560&amp;x=0"'} 
+ body={"name":"azul","year":"2000","color":"#C48394","updatedAt":"2025-05-27T20:34:22.196Z"} 
  </msg>
-<msg time="2025-05-26T18:58:36.967651" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:21.993818" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:36.967801" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:21.993954" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/unknown/${id}</arg>
 <arg>json=${payload}</arg>
 <doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.536539" elapsed="0.431286"/>
+<status status="PASS" start="2025-05-27T17:34:21.525615" elapsed="0.468361"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.968204" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:21.994377" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.967998" elapsed="0.000238"/>
+<status status="PASS" start="2025-05-27T17:34:21.994152" elapsed="0.000257"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.968667" level="INFO">Updated resource: {'name': 'azul', 'year': '2000', 'color': '#C48394', 'updatedAt': '2025-05-26T21:58:37.320Z'}</msg>
+<msg time="2025-05-27T17:34:21.994861" level="INFO">Updated resource: {'name': 'azul', 'year': '2000', 'color': '#C48394', 'updatedAt': '2025-05-27T20:34:22.196Z'}</msg>
 <arg>Updated resource: ${response.json()}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.968318" elapsed="0.000383"/>
+<status status="PASS" start="2025-05-27T17:34:21.994508" elapsed="0.000386"/>
 </kw>
 <arg>2</arg>
 <doc>Atualiza um recurso com o método PUT</doc>
-<status status="PASS" start="2025-05-26T18:58:36.536148" elapsed="0.432602"/>
+<status status="PASS" start="2025-05-27T17:34:21.525216" elapsed="0.469726"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.969123" elapsed="0.000492"/>
+<status status="PASS" start="2025-05-27T17:34:21.995374" elapsed="0.000633"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.969933" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:21.996338" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.969694" elapsed="0.000270"/>
+<status status="PASS" start="2025-05-27T17:34:21.996084" elapsed="0.000285"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:36.968938" elapsed="0.001064"/>
+<status status="PASS" start="2025-05-27T17:34:21.995129" elapsed="0.001277"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;updatedAt&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;updatedAt&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:36.970679" level="INFO">${fields} = ['updatedAt']</msg>
+<msg time="2025-05-27T17:34:21.996863" level="INFO">${fields} = ['updatedAt']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.970399" elapsed="0.000299"/>
+<status status="PASS" start="2025-05-27T17:34:21.996750" elapsed="0.000129"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.971050" level="INFO">${dict} = {'name': 'azul', 'year': '2000', 'color': '#C48394', 'updatedAt': '2025-05-26T21:58:37.320Z'}</msg>
+<msg time="2025-05-27T17:34:21.997242" level="INFO">${dict} = {'name': 'azul', 'year': '2000', 'color': '#C48394', 'updatedAt': '2025-05-27T20:34:22.196Z'}</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.970771" elapsed="0.000297"/>
+<status status="PASS" start="2025-05-27T17:34:21.996950" elapsed="0.000310"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1799,7 +1861,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.971459" elapsed="0.000121"/>
+<status status="PASS" start="2025-05-27T17:34:21.997649" elapsed="0.000120"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1809,154 +1871,156 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.971268" elapsed="0.000349"/>
+<status status="PASS" start="2025-05-27T17:34:21.997467" elapsed="0.000337"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:36.972038" level="INFO">${dict} = 2025-05-26T21:58:37.320Z</msg>
+<msg time="2025-05-27T17:34:21.998218" level="INFO">${dict} = 2025-05-27T20:34:22.196Z</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.971700" elapsed="0.000356"/>
+<status status="PASS" start="2025-05-27T17:34:21.997881" elapsed="0.000355"/>
 </kw>
 <var name="${part}">updatedAt</var>
-<status status="PASS" start="2025-05-26T18:58:36.971204" elapsed="0.000879"/>
+<status status="PASS" start="2025-05-27T17:34:21.997400" elapsed="0.000862"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:36.971110" elapsed="0.000994"/>
+<status status="PASS" start="2025-05-27T17:34:21.997303" elapsed="0.000979"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:36.970230" elapsed="0.001910"/>
+<status status="PASS" start="2025-05-27T17:34:21.996584" elapsed="0.001735"/>
 </kw>
 <tag>api</tag>
 <tag>PUT</tag>
 <tag>reqres</tag>
 <tag>resource</tag>
+<tag>resources</tag>
 <tag>update</tag>
-<status status="PASS" start="2025-05-26T18:58:36.535882" elapsed="0.436381"/>
+<status status="PASS" start="2025-05-27T17:34:21.524926" elapsed="0.473523"/>
 </test>
-<test id="s1-t13" name="Cenário 13: DELETE Excluir um recurso" line="86">
-<kw name="DELETE Endpoint /resource/id" owner="api_testing_user">
+<test id="s1-s3-t3" name="Cenário 13: DELETE Excluir um recurso" line="22">
+<kw name="DELETE Endpoint /resource/id" owner="resources_keywords">
 <kw name="DELETE On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:37.403038" level="INFO">DELETE Request : url=https://reqres.in/api/unknown/3 
+<msg time="2025-05-27T17:34:22.428900" level="INFO">DELETE Request : url=https://reqres.in/api/unknown/3 
  path_url=/api/unknown/3 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:37.403136" level="INFO">DELETE Response : url=https://reqres.in/api/unknown/3 
+<msg time="2025-05-27T17:34:22.429071" level="INFO">DELETE Response : url=https://reqres.in/api/unknown/3 
  status=204, reason=No Content 
- headers={'Date': 'Mon, 26 May 2025 21:58:37 GMT', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '946088f43c89cb5c-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748296717&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ibZ8fvgwqw5UasaQ9MuG%2FLPCJdZjzpIxOX%2FPuY8E480%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748296717&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ibZ8fvgwqw5UasaQ9MuG%2FLPCJdZjzpIxOX%2FPuY8E480%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '80', 'Ratelimit-Reset': '56', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=59849&amp;min_rtt=57128&amp;rtt_var=3818&amp;sent=38&amp;recv=36&amp;lost=0&amp;retrans=0&amp;sent_bytes=19702&amp;recv_bytes=4431&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=4760&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:22 GMT', 'Connection': 'keep-alive', 'Server': 'cloudflare', 'Cf-Ray': '94684ae9b9c7cad8-GIG', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748378062&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=nNH8uE3cAw7jiHKTzuAO1QiMrBMaamf0kRRABMwBD4s%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748378062&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=nNH8uE3cAw7jiHKTzuAO1QiMrBMaamf0kRRABMwBD4s%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '80', 'Ratelimit-Reset': '56', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'Cf-Cache-Status': 'DYNAMIC', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=58146&amp;min_rtt=56951&amp;rtt_var=7722&amp;sent=13&amp;recv=13&amp;lost=0&amp;retrans=0&amp;sent_bytes=6239&amp;recv_bytes=1454&amp;delivery_rate=98767&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=c7dddd7c5e6fa4b9&amp;ts=1000&amp;x=0"'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:37.403205" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:22.429143" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:37.403358" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<msg time="2025-05-27T17:34:22.429279" level="INFO">${response} = &lt;Response [204]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/unknown/${id}</arg>
 <doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:36.972882" elapsed="0.430503"/>
+<status status="PASS" start="2025-05-27T17:34:21.999108" elapsed="0.430193"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.403819" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<msg time="2025-05-27T17:34:22.429704" level="INFO">${response} = &lt;Response [204]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.403597" elapsed="0.000254"/>
+<status status="PASS" start="2025-05-27T17:34:22.429477" elapsed="0.000260"/>
 </kw>
 <arg>3</arg>
 <doc>Exclui um recurso</doc>
-<status status="PASS" start="2025-05-26T18:58:36.972712" elapsed="0.431204"/>
+<status status="PASS" start="2025-05-27T17:34:21.998929" elapsed="0.430857"/>
 </kw>
-<kw name="Validar status code &quot;204&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;204&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.404325" elapsed="0.000535"/>
+<status status="PASS" start="2025-05-27T17:34:22.430194" elapsed="0.000527"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.405185" level="INFO">Response status: 204</msg>
+<msg time="2025-05-27T17:34:22.431059" level="INFO">Response status: 204</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.404937" elapsed="0.000280"/>
+<status status="PASS" start="2025-05-27T17:34:22.430799" elapsed="0.000296"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:37.404121" elapsed="0.001134"/>
+<status status="PASS" start="2025-05-27T17:34:22.429987" elapsed="0.001148"/>
 </kw>
 <tag>api</tag>
 <tag>DELETE</tag>
 <tag>reqres</tag>
 <tag>resource</tag>
-<status status="PASS" start="2025-05-26T18:58:36.972453" elapsed="0.432925"/>
+<tag>resources</tag>
+<status status="PASS" start="2025-05-27T17:34:21.998647" elapsed="0.432608"/>
 </test>
-<test id="s1-t14" name="Cenário 14: GET Listar todos os recursos" line="91">
-<kw name="GET Endpoint /resource" owner="api_testing_user">
+<test id="s1-s3-t4" name="Cenário 14: GET Listar todos os recursos" line="27">
+<kw name="GET Endpoint /resource" owner="resources_keywords">
 <kw name="GET On Session" owner="RequestsLibrary">
-<msg time="2025-05-26T18:58:37.475842" level="INFO">GET Request : url=https://reqres.in/api/unknown 
+<msg time="2025-05-27T17:34:22.502762" level="INFO">GET Request : url=https://reqres.in/api/unknown 
  path_url=/api/unknown 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'x-api-key': 'reqres-free-v1'} 
  body=None 
  </msg>
-<msg time="2025-05-26T18:58:37.475968" level="INFO">GET Response : url=https://reqres.in/api/unknown 
+<msg time="2025-05-27T17:34:22.502867" level="INFO">GET Response : url=https://reqres.in/api/unknown 
  status=200, reason=OK 
- headers={'Date': 'Mon, 26 May 2025 21:58:37 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '946088f6fe8ccb5c-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748199383&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=LiF3Ghk0nWDdoWfffoxTBh1sOF52h6%2FR6GDq8VfcGZU%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748199383&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=LiF3Ghk0nWDdoWfffoxTBh1sOF52h6%2FR6GDq8VfcGZU%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Etag': 'W/"2fb-zJ/iiAzm4zf7SruyfEtNo0xEDoY"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'Cf-Cache-Status': 'HIT', 'Age': '5365', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=60133&amp;min_rtt=57128&amp;rtt_var=3432&amp;sent=40&amp;recv=37&amp;lost=0&amp;retrans=0&amp;sent_bytes=20824&amp;recv_bytes=4676&amp;delivery_rate=73901&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=0d87c2de74dc54f3&amp;ts=4835&amp;x=0"'} 
+ headers={'Date': 'Tue, 27 May 2025 20:34:22 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Cf-Ray': '94684aec7c0ecad8-GIG', 'Server': 'cloudflare', 'Content-Encoding': 'gzip', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1748199383&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=LiF3Ghk0nWDdoWfffoxTBh1sOF52h6%2FR6GDq8VfcGZU%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1748199383&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=LiF3Ghk0nWDdoWfffoxTBh1sOF52h6%2FR6GDq8VfcGZU%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Ratelimit-Policy': '100;w=60', 'Ratelimit-Limit': '100', 'Ratelimit-Remaining': '98', 'Ratelimit-Reset': '60', 'Etag': 'W/"2fb-zJ/iiAzm4zf7SruyfEtNo0xEDoY"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'Cf-Cache-Status': 'HIT', 'Age': '1042', 'Vary': 'Accept-Encoding', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=58542&amp;min_rtt=56951&amp;rtt_var=6583&amp;sent=15&amp;recv=14&amp;lost=0&amp;retrans=0&amp;sent_bytes=7352&amp;recv_bytes=1699&amp;delivery_rate=98767&amp;cwnd=256&amp;unsent_bytes=0&amp;cid=c7dddd7c5e6fa4b9&amp;ts=1074&amp;x=0"'} 
  body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"name":"cerulean","year":2000,"color":"#98B2D1","pantone_value":"15-4020"},{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},{"id":3,"name":"true red","year":2002,"color":"#BF1932","pantone_value":"19-1664"},{"id":4,"name":"aqua sky","year":2003,"color":"#7BC4C4","pantone_value":"14-4811"},{"id":5,"name":"tigerlily","year":2004,"color":"#E2583E","pantone_value":"17-1456"},{"id":6,"name":"blue turquoise","year":2005,"color":"#53B0AE","pantone_value":"15-5217"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
  </msg>
-<msg time="2025-05-26T18:58:37.476115" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+<msg time="2025-05-27T17:34:22.502934" level="INFO">/usr/lib/python3/dist-packages/urllib3/connectionpool.py:1020: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
   warnings.warn(</msg>
-<msg time="2025-05-26T18:58:37.476313" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:22.503089" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>alias=ReqRes</arg>
 <arg>url=/unknown</arg>
 <doc>Sends a GET request on a previously created HTTP Session.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.406020" elapsed="0.070321"/>
+<status status="PASS" start="2025-05-27T17:34:22.431901" elapsed="0.071215"/>
 </kw>
 <kw name="Set Global Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.476725" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2025-05-27T17:34:22.503542" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <arg>${response}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.476521" elapsed="0.000236"/>
+<status status="PASS" start="2025-05-27T17:34:22.503324" elapsed="0.000253"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.477174" level="INFO">Resources found: 12</msg>
+<msg time="2025-05-27T17:34:22.504008" level="INFO">Resources found: 12</msg>
 <arg>Resources found: ${response.json()["total"]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.476838" elapsed="0.000372"/>
+<status status="PASS" start="2025-05-27T17:34:22.503665" elapsed="0.000375"/>
 </kw>
 <doc>Lista todos os recursos</doc>
-<status status="PASS" start="2025-05-26T18:58:37.405866" elapsed="0.071394"/>
+<status status="PASS" start="2025-05-27T17:34:22.431747" elapsed="0.072340"/>
 </kw>
-<kw name="Validar status code &quot;200&quot;" owner="api_testing_user" source_name="Validar status code &quot;${statuscode}&quot;">
+<kw name="Validar status code &quot;200&quot;" owner="common" source_name="Validar status code &quot;${statuscode}&quot;">
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${response.status_code} == ${statuscode}</arg>
 <doc>Fails if the given condition is not true.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.477641" elapsed="0.000540"/>
+<status status="PASS" start="2025-05-27T17:34:22.504550" elapsed="0.000507"/>
 </kw>
 <kw name="Log" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.478505" level="INFO">Response status: 200</msg>
+<msg time="2025-05-27T17:34:22.505377" level="INFO">Response status: 200</msg>
 <arg>Response status: ${response.status_code}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.478259" elapsed="0.000277"/>
+<status status="PASS" start="2025-05-27T17:34:22.505136" elapsed="0.000271"/>
 </kw>
 <doc>Valida que a resposta tem o status code esperado</doc>
-<status status="PASS" start="2025-05-26T18:58:37.477451" elapsed="0.001124"/>
+<status status="PASS" start="2025-05-27T17:34:22.504276" elapsed="0.001170"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;data&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;data&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:37.479027" level="INFO">${fields} = ['data']</msg>
+<msg time="2025-05-27T17:34:22.506118" level="INFO">${fields} = ['data']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.478911" elapsed="0.000133"/>
+<status status="PASS" start="2025-05-27T17:34:22.505994" elapsed="0.000142"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.479404" level="INFO">${dict} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year'...</msg>
+<msg time="2025-05-27T17:34:22.506529" level="INFO">${dict} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year'...</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.479115" elapsed="0.000308"/>
+<status status="PASS" start="2025-05-27T17:34:22.506208" elapsed="0.000343"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -1965,7 +2029,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.480045" elapsed="0.000125"/>
+<status status="PASS" start="2025-05-27T17:34:22.507036" elapsed="0.000122"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -1975,42 +2039,42 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.479754" elapsed="0.000453"/>
+<status status="PASS" start="2025-05-27T17:34:22.506765" elapsed="0.000430"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.480700" level="INFO">${dict} = [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, {'id': 3,...</msg>
+<msg time="2025-05-27T17:34:22.507713" level="INFO">${dict} = [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year': 2001, 'color': '#C74375', 'pantone_value': '17-2031'}, {'id': 3,...</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.480286" elapsed="0.000432"/>
+<status status="PASS" start="2025-05-27T17:34:22.507276" elapsed="0.000456"/>
 </kw>
 <var name="${part}">data</var>
-<status status="PASS" start="2025-05-26T18:58:37.479556" elapsed="0.001190"/>
+<status status="PASS" start="2025-05-27T17:34:22.506697" elapsed="0.001063"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:37.479464" elapsed="0.001302"/>
+<status status="PASS" start="2025-05-27T17:34:22.506596" elapsed="0.001185"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:37.478742" elapsed="0.002080"/>
+<status status="PASS" start="2025-05-27T17:34:22.505641" elapsed="0.002182"/>
 </kw>
-<kw name="Validar resposta contém campo &quot;total&quot;" owner="api_testing_user" source_name="Validar resposta contém campo &quot;${field}&quot;">
+<kw name="Validar resposta contém campo &quot;total&quot;" owner="common" source_name="Validar resposta contém campo &quot;${field}&quot;">
 <kw name="Split String" owner="String">
-<msg time="2025-05-26T18:58:37.481246" level="INFO">${fields} = ['total']</msg>
+<msg time="2025-05-27T17:34:22.508328" level="INFO">${fields} = ['total']</msg>
 <var>${fields}</var>
 <arg>${field}</arg>
 <arg>.</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.481138" elapsed="0.000126"/>
+<status status="PASS" start="2025-05-27T17:34:22.508212" elapsed="0.000133"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.481616" level="INFO">${dict} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year'...</msg>
+<msg time="2025-05-27T17:34:22.508726" level="INFO">${dict} = {'page': 1, 'per_page': 6, 'total': 12, 'total_pages': 2, 'data': [{'id': 1, 'name': 'cerulean', 'year': 2000, 'color': '#98B2D1', 'pantone_value': '15-4020'}, {'id': 2, 'name': 'fuchsia rose', 'year'...</msg>
 <var>${dict}</var>
 <arg>${response.json()}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.481331" elapsed="0.000303"/>
+<status status="PASS" start="2025-05-27T17:34:22.508416" elapsed="0.000329"/>
 </kw>
 <for flavor="IN">
 <iter>
@@ -2019,7 +2083,7 @@
 <arg>${dict}</arg>
 <arg>${part}</arg>
 <doc>Fails if ``key`` is not found from ``dictionary``.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.482111" elapsed="0.000119"/>
+<status status="PASS" start="2025-05-27T17:34:22.509211" elapsed="0.000132"/>
 </kw>
 <arg>"${part}" in ${dict}</arg>
 <arg>Dictionary Should Contain Key</arg>
@@ -2029,37 +2093,39 @@
 <arg>Fail</arg>
 <arg>Field "${part}" not found in response</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.481809" elapsed="0.000457"/>
+<status status="PASS" start="2025-05-27T17:34:22.508934" elapsed="0.000450"/>
 </kw>
 <kw name="Set Variable If" owner="BuiltIn">
-<msg time="2025-05-26T18:58:37.482778" level="INFO">${dict} = 12</msg>
+<msg time="2025-05-27T17:34:22.509924" level="INFO">${dict} = 12</msg>
 <var>${dict}</var>
 <arg>"${part}" in ${dict}</arg>
 <arg>${dict["${part}"]}</arg>
 <arg>${dict}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<status status="PASS" start="2025-05-26T18:58:37.482352" elapsed="0.000444"/>
+<status status="PASS" start="2025-05-27T17:34:22.509481" elapsed="0.000462"/>
 </kw>
 <var name="${part}">total</var>
-<status status="PASS" start="2025-05-26T18:58:37.481747" elapsed="0.001076"/>
+<status status="PASS" start="2025-05-27T17:34:22.508867" elapsed="0.001102"/>
 </iter>
 <var>${part}</var>
 <value>@{fields}</value>
-<status status="PASS" start="2025-05-26T18:58:37.481668" elapsed="0.001172"/>
+<status status="PASS" start="2025-05-27T17:34:22.508781" elapsed="0.001208"/>
 </for>
 <doc>Valida que a resposta JSON contém o campo específico</doc>
-<status status="PASS" start="2025-05-26T18:58:37.480978" elapsed="0.001897"/>
+<status status="PASS" start="2025-05-27T17:34:22.508020" elapsed="0.002005"/>
 </kw>
 <tag>api</tag>
 <tag>GET</tag>
 <tag>list</tag>
 <tag>reqres</tag>
 <tag>resource</tag>
-<status status="PASS" start="2025-05-26T18:58:37.405589" elapsed="0.077397"/>
+<tag>resources</tag>
+<status status="PASS" start="2025-05-27T17:34:22.431456" elapsed="0.078698"/>
 </test>
-<doc>Suite de testes para validação da ReqRes API
-Testa todos os principais endpoints e operações da ReqRes API</doc>
-<status status="PASS" start="2025-05-26T18:58:32.570381" elapsed="4.912969"/>
+<doc>Testes para endpoints de recursos</doc>
+<status status="PASS" start="2025-05-27T17:34:21.316992" elapsed="1.193444"/>
+</suite>
+<status status="PASS" start="2025-05-27T17:34:17.235789" elapsed="5.275132"/>
 </suite>
 <statistics>
 <total>
@@ -2067,6 +2133,7 @@ Testa todos os principais endpoints e operações da ReqRes API</doc>
 </total>
 <tag>
 <stat pass="14" fail="0" skip="0">api</stat>
+<stat pass="5" fail="0" skip="0">auth</stat>
 <stat pass="2" fail="0" skip="0">DELETE</stat>
 <stat pass="2" fail="0" skip="0">error</stat>
 <stat pass="4" fail="0" skip="0">GET</stat>
@@ -2079,13 +2146,18 @@ Testa todos os principais endpoints e operações da ReqRes API</doc>
 <stat pass="2" fail="0" skip="0">register</stat>
 <stat pass="14" fail="0" skip="0">reqres</stat>
 <stat pass="4" fail="0" skip="0">resource</stat>
+<stat pass="4" fail="0" skip="0">resources</stat>
 <stat pass="2" fail="0" skip="0">single</stat>
 <stat pass="2" fail="0" skip="0">success</stat>
 <stat pass="3" fail="0" skip="0">update</stat>
 <stat pass="7" fail="0" skip="0">user</stat>
+<stat pass="5" fail="0" skip="0">users</stat>
 </tag>
 <suite>
-<stat name="Api Testing User" id="s1" pass="14" fail="0" skip="0">Api Testing User</stat>
+<stat name="Auth Tests &amp; Users Tests &amp; Resources Tests" id="s1" pass="14" fail="0" skip="0">Auth Tests &amp; Users Tests &amp; Resources Tests</stat>
+<stat name="Auth Tests" id="s1-s1" pass="5" fail="0" skip="0">Auth Tests &amp; Users Tests &amp; Resources Tests.Auth Tests</stat>
+<stat name="Users Tests" id="s1-s2" pass="5" fail="0" skip="0">Auth Tests &amp; Users Tests &amp; Resources Tests.Users Tests</stat>
+<stat name="Resources Tests" id="s1-s3" pass="4" fail="0" skip="0">Auth Tests &amp; Users Tests &amp; Resources Tests.Resources Tests</stat>
 </suite>
 </statistics>
 <errors>
