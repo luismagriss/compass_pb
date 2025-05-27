@@ -10,7 +10,7 @@ Automatizar cenários de teste para os principais endpoints da API ReqRes, inclu
 
 * [Robot Framework](https://robotframework.org/)
 * [RequestsLibrary](https://github.com/MarketSquare/robotframework-requests)
-* Python 3.10 ou superior
+* Python 3.10
 
 ## Estrutura do Projeto
 
