@@ -13,7 +13,7 @@ Uma calculadora básica implementada com foco na prática de **TDD (Test-Driven 
 
 ##  Testes
 
-Os testes foram desenvolvidos **antes da implementação dos métodos**, seguindo a metodologia TDD. Utilizamos o framework [**Pytest**](https://docs.pytest.org/) e aplicamos recursos como:
+Os testes foram desenvolvidos **antes da implementação dos métodos**, seguindo a metodologia TDD. Utilizei o framework [**Pytest**](https://docs.pytest.org/) e apliquei recursos como:
 
 - `@pytest.mark.parametrize` para testar diferentes cenários de entrada
 - `@pytest.fixture` para reutilização da instância da calculadora
@@ -60,15 +60,13 @@ Os testes foram desenvolvidos **antes da implementação dos métodos**, seguind
 5. Execute os testes
    ```bash
    pytest --cov=src tests/
-
-## Relatório de Cobertura
-Gerar relatório visual da cobertura de testes
-```bash
-pytest --cov=src tests/ --cov-report html
-```
+6. Gerar relatório visual da cobertura de testes
+   ```bash
+   pytest --cov=src tests/ --cov-report html
+   ```
+   
 ## Autor
-Luis Magris de Sousa
-[https://github.com/luismagriss]
+- [Luis Magris de Sousa](https://github.com/luismagriss)
 
 ## Referências
-ChatGPT - usado para tirar dúvidas e entender erros.
+- ChatGPT - usado para tirar dúvidas e entender erros.
