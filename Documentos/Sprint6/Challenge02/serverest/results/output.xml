@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.10.12 on linux)" generated="2025-06-02T18:05:34.940915" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Auth" source="/home/luisms/compass_pb/Documentos/Sprint6/Challenge02/serverest/tests/test_auth.robot">
+<test id="s1-t1" name="Cenário 01: Fazer login" line="5">
+<kw name="POST Endpoint /login" owner="resources_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-02T18:05:34.989037" level="INFO">${body} = {'email': 'fulano@qa.com', 'password': 'teste'}</msg>
+<var>${body}</var>
+<arg>email=fulano@qa.com</arg>
+<arg>password=teste</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-02T18:05:34.988763" elapsed="0.000316"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-02T18:05:34.989363" level="INFO">${header} = {'accept': 'application/json', 'Content-Type': 'application/json'}</msg>
+<var>${header}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-02T18:05:34.989197" elapsed="0.000190"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2025-06-02T18:05:35.511353" level="INFO">POST Request : url=https://compassuol.serverest.dev/login 
+ path_url=/login 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '47'} 
+ body=b'{"email": "fulano@qa.com", "password": "teste"}' 
+ </msg>
+<msg time="2025-06-02T18:05:35.511471" level="INFO">POST Response : url=https://compassuol.serverest.dev/login 
+ status=200, reason=OK 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'x-cloud-trace-context': '33cdd05152c988b5b3176e11b3617108;o=1', 'date': 'Mon, 02 Jun 2025 21:05:35 GMT', 'server': 'Google Frontend', 'Content-Length': '265'} 
+ body={
+    "message": "Login realizado com sucesso",
+    "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ4ODk4MzM1LCJleHAiOjE3NDg4OTg5MzV9.j6mS6hrCUxNIjOPD8w4R_XV3VY_kcLCYdN5dyuQdw1o"
+} 
+ </msg>
+<msg time="2025-06-02T18:05:35.511722" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>url=${BASE_URL}/login</arg>
+<arg>json=${body}</arg>
+<arg>headers=${header}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2025-06-02T18:05:34.989477" elapsed="0.522268"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-06-02T18:05:35.512097" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<arg>${response}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-06-02T18:05:35.511902" elapsed="0.000228"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-02T18:05:35.512533" level="INFO">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ4ODk4MzM1LCJleHAiOjE3NDg4OTg5MzV9.j6mS6hrCUxNIjOPD8w4R_XV3VY_kcLCYdN5dyuQdw1o</msg>
+<arg>${response.json()}[authorization]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-02T18:05:35.512199" elapsed="0.000371"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-02T18:05:35.512915" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ4ODk4MzM1LCJleHAiOjE3NDg4OTg5MzV9.j6mS6hrCUxNIjOPD8w4R_XV3VY_kcLCYdN5dyuQdw1o</msg>
+<var>${token}</var>
+<arg>${response.json()}[authorization]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-02T18:05:35.512641" elapsed="0.000293"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-06-02T18:05:35.513124" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ4ODk4MzM1LCJleHAiOjE3NDg4OTg5MzV9.j6mS6hrCUxNIjOPD8w4R_XV3VY_kcLCYdN5dyuQdw1o</msg>
+<arg>${token}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-06-02T18:05:35.513003" elapsed="0.000164"/>
+</kw>
+<status status="PASS" start="2025-06-02T18:05:34.988252" elapsed="0.524969"/>
+</kw>
+<kw name="Criar sessão na Serverest" owner="resources_keywords">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-06-02T18:05:35.513746" level="INFO">${headers} = {'accept': 'application/json', 'Content-Type': 'application/json', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ...</msg>
+<var>${headers}</var>
+<arg>accept=application/json</arg>
+<arg>Content-Type=application/json</arg>
+<arg>authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-06-02T18:05:35.513580" elapsed="0.000186"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-06-02T18:05:35.513977" level="INFO">Creating Session using : alias=ServeRest, url=https://compassuol.serverest.dev, headers={'accept': 'application/json', 'Content-Type': 'application/json', 'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ4ODk4MzM1LCJleHAiOjE3NDg4OTg5MzV9.j6mS6hrCUxNIjOPD8w4R_XV3VY_kcLCYdN5dyuQdw1o'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>ServeRest</arg>
+<arg>${BASE_URL}</arg>
+<arg>${headers}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-06-02T18:05:35.513835" elapsed="0.000301"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-06-02T18:05:35.514306" level="INFO">Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZ1bGFub0BxYS5jb20iLCJwYXNzd29yZCI6InRlc3RlIiwiaWF0IjoxNzQ4ODk4MzM1LCJleHAiOjE3NDg4OTg5MzV9.j6mS6hrCUxNIjOPD8w4R_XV3VY_kcLCYdN5dyuQdw1o</msg>
+<arg>${headers}[authorization]</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-06-02T18:05:35.514214" elapsed="0.000122"/>
+</kw>
+<status status="PASS" start="2025-06-02T18:05:35.513406" elapsed="0.000968"/>
+</kw>
+<status status="PASS" start="2025-06-02T18:05:34.987294" elapsed="0.527197"/>
+</test>
+<status status="PASS" start="2025-06-02T18:05:34.941800" elapsed="0.573032"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Auth" id="s1" pass="1" fail="0" skip="0">Test Auth</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
