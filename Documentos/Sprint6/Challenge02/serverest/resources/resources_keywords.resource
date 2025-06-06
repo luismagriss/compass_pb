@@ -4,7 +4,7 @@ Library    FakerLibrary
 Library    Collections
 
 *** Variables ***
-${BASE_URL}             https://172.31.64.74:3000
+${BASE_URL}             http://172.31.64.74:3000
 
 *** Keywords ***
 
