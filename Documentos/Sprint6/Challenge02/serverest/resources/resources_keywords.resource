@@ -4,7 +4,7 @@ Library    FakerLibrary
 Library    Collections
 
 *** Variables ***
-${BASE_URL}             https://compassuol.serverest.dev
+${BASE_URL}             https://172.31.64.74:3000
 
 *** Keywords ***
 
