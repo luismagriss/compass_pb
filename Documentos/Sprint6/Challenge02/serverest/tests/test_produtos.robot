@@ -1,5 +1,6 @@
 *** Settings ***
 Resource        ../resources/resources_keywords.resource
+Suite Setup     Criar sessão na Serverest
 
 *** Test Cases ***
 Cenário 01: Listar produtos
