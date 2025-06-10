@@ -1,4 +1,4 @@
-# Estratégia de Mapeamento de Elementos - Squad
+# Estratégia de Mapeamento de Elementos - Squad Codetectives
 
 Esta atividade em grupo teve como objetivo mapear os botões e os elementos da tabela da página [https://the-internet.herokuapp.com/challenging_dom](https://the-internet.herokuapp.com/challenging_dom), utilizando boas práticas para garantir precisão, estabilidade e facilidade de manutenção em automações de teste.
 
